@@ -9,19 +9,19 @@ import {
     Col,
     Table,
 } from "reactstrap";
-import { actions as devicesActions } from "./redux/devices-actions";
+import { actions as GatewaysActions } from "./redux/Gateways-actions";
 import { actions as systemActions } from "../redux/system-actions";
-import DevicesForm from "./DevicesForm";
-import { DevicesTable } from "./DevicesTable";
+import GatewaysForm from "./GatewaysForm";
+import { GatewaysTable } from "./GatewaysTable";
 
 const mapState = (state: RootState) => ({
-    loading: state.devices.loading,
-    devices: state.devices.devices,
+    loading: state.Gateways.loading,
+    Gateways: state.Gateways.Gateways,
 });
 
 const mapDispatch = {
-    loadDevices: devicesActions.loadDevices,
-    createDevice: devicesActions.createDevice,
+    loadGateways: GatewaysActions.loadGateways,
+    createGateway: GatewaysActions.createGateway,
     notify: systemActions.notify
 };
 
@@ -30,16 +30,16 @@ type PropsFromRedux = ConnectedProps<typeof connector>;
 
 type Props = PropsFromRedux;
 
-function Devices({
+function Gateways({
     loading,
     devices,
-    createDevice,
-    loadDevices,
+    createGateway,
+    loadGateways,
     notify,
 }: Props) {
 
     useEffect(() => {
-        loadDevices();
+        loadGateways();
     }, []);
 
     return (
@@ -47,11 +47,11 @@ function Devices({
             <Container className="mt--6 d-flex justify-content-center" >
                 <Col >
                     <Row className="justify-content-md-center">
-                        <DevicesForm onCreateDevice={createDevice} loading={loading} />
+                        <GatewaysForm onCreateGateway={createGateway} loading={loading} />
                     </Row>
 
                     <Row className="mt-5 justify-content-md-center">
-                        <DevicesTable devices={devices} />
+                        <GatewaysTable Gateways={Gateways} />
                     </Row>
                 </Col>
 
@@ -61,4 +61,4 @@ function Devices({
 }
 
 
-export default connector(Devices);
+export default connector(Gateways);

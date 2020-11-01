@@ -1,11 +1,11 @@
-import { Device } from "./devices-state";
+import { Gateway } from "./Gateways-state";
 import { ThunkAction } from "redux-thunk";
 import { RootState } from "redux/root-reducer";
 import { Action } from "redux";
-import devicesService from "devices/services/devices-service";
+import GatewaysService from "Gateway/services/Gateways-service";
 import { v4 as uuidv4 } from "uuid";
 
-export enum DevicesActionType {
+export enum GatewaysActionType {
   LOADING = "DEVICES_LOADING",
   FAILED = "DEVICES_FAILED",
   CHANGE_DEVICES = "DEVICES_CHANGE_DEVICES",

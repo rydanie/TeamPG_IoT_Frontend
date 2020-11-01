@@ -10,7 +10,7 @@ import {
     Button,
 } from "reactstrap";
 import { useForm, Controller } from "react-hook-form";
-import { Device } from "./redux/devices-state";
+import { Gateways } from "./redux/Gateways-state";
 
 interface FormInput {
     name: string;
@@ -18,35 +18,35 @@ interface FormInput {
 
 interface DevicesFormProps {
     loading: boolean;
-    onCreateDevice: (name: string) => void;
+    onCreateGateway: (name: string) => void;
 }
 
-export default function DevicesForm({ loading, onCreateDevice }: DevicesFormProps): JSX.Element {
+export default function GatewaysForm({ loading, onCreateDevice }: GatewaysFormProps): JSX.Element {
     const { register, errors, control, handleSubmit } = useForm<FormInput>();
     const onSubmit = (data: FormInput) => {
-        onCreateDevice(data.name);
+        onCreateGateway(data.name);
     };
 
     return <Card className="col-lg-6">
         <CardHeader>
-            <h3 className="mb-0">DEVICE ENROLLEMENT</h3>
+            <h3 className="mb-0">GATEWAY ENROLLEMENT</h3>
         </CardHeader>
         <CardBody>
             <Form onSubmit={handleSubmit(onSubmit)}>
                 <FormGroup>
-                    <Label for="device-name">Name</Label>
+                    <Label for="Gateway-name">Name</Label>
                     <Controller
                         as={Input}
                         name="name"
                         control={control}
                         defaultValue=""
                         placeholder="Name"
-                        id="device-name"
+                        id="Gateway-name"
                         rules={{ required: true }}
                     />
                     {errors.name &&
                         <div className="alert alert-danger" role="alert">
-                            <strong>Device name</strong> is required
+                            <strong>Gateway name</strong> is required
                                 </div>}
                 </FormGroup>
 
