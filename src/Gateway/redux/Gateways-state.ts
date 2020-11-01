@@ -1,11 +1,11 @@
-export interface DevicesState {
+export interface GatewaysState {
     loading: boolean;
     succeed: boolean;
     error?: any;
-    devices?: Device[];
+    Gateways?: Gateway[];
 }
 
-export interface Device {
+export interface Gateway {
     id?: number;
     name?: string;
 }
