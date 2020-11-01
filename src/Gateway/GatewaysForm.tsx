@@ -10,18 +10,26 @@ import {
     Button,
 } from "reactstrap";
 import { useForm, Controller } from "react-hook-form";
+<<<<<<< HEAD:src/Gateway/GatewaysForm.tsx
 import { Gateways } from "./redux/Gateways-state";
+=======
+import { Gateway } from "./redux/Gateways-state";
+>>>>>>> 53aecffd151c6e871747f41b4c65ce6d99cee5b7:src/Gateway/DevicesForm.tsx
 
 interface FormInput {
     name: string;
 }
 
-interface DevicesFormProps {
+interface GatewaysFormProps {
     loading: boolean;
     onCreateGateway: (name: string) => void;
 }
 
+<<<<<<< HEAD:src/Gateway/GatewaysForm.tsx
 export default function GatewaysForm({ loading, onCreateDevice }: GatewaysFormProps): JSX.Element {
+=======
+export default function GatewaysForm({ loading, onCreateGateway }: GatewaysFormProps): JSX.Element {
+>>>>>>> 53aecffd151c6e871747f41b4c65ce6d99cee5b7:src/Gateway/DevicesForm.tsx
     const { register, errors, control, handleSubmit } = useForm<FormInput>();
     const onSubmit = (data: FormInput) => {
         onCreateGateway(data.name);
