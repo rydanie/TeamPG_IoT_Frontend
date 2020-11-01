@@ -6,6 +6,7 @@ const initialState: GatewaysState = {
   succeed: false,
 };
 
+
 export function GatewaysReducer(
   state: GatewaysState = initialState,
   action: GatewaysAction
@@ -23,10 +24,12 @@ export function GatewaysReducer(
         error: (action as GatewaysFailedAction).error,
         loading: false,
       };
+
     case GatewaysActionType.CHANGE_GATEWAYS:
       return {
         ...state,
         devices: (action as GatewaysChangedAction).Gateways,
+
         loading: false,
         error: undefined,
       };
