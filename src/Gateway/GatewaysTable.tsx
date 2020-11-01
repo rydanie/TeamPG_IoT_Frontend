@@ -3,13 +3,13 @@ import React from "react";
 import {
     Table,
 } from "reactstrap";
-import { Device } from "./redux/devices-state";
+import { Gateway } from "./redux/Gateways-state";
 
-interface DevicesTableProps {
-    devices?: Device[];
+interface GatewaysTableProps {
+        Gateways?: Gateway[];
 }
 
-export function DevicesTable({ devices }: DevicesTableProps): JSX.Element {
+export function GatewaysTable({ Gateways }: GatewaysTableProps): JSX.Element {
     return <Table className="align-items-center" responsive hover striped>
         <thead className="thead-light">
             <tr>
@@ -19,11 +19,11 @@ export function DevicesTable({ devices }: DevicesTableProps): JSX.Element {
             </tr>
         </thead>
         <tbody>
-            {devices?.map((device) => {
+            {Gateways?.map((Gateway) => {
                 return (
-                    <tr key={device.id}>
+                    <tr key={Gateway.id}>
                         <th scope="row">
-                            {device.name}
+                            {Gateway.name}
                         </th>
                     </tr>
                 );
