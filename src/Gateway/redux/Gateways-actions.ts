@@ -2,79 +2,79 @@ import { Gateway } from "./Gateways-state";
 import { ThunkAction } from "redux-thunk";
 import { RootState } from "redux/root-reducer";
 import { Action } from "redux";
-import GatewaysService from "Gateways/services/Gateways-service";
+import GatewaysService from "Gateway/services/Gateways-service";
 import { v4 as uuidv4 } from "uuid";
 
 export enum GatewaysActionType {
-  LOADING = "GATEWAYS_LOADING",
-  FAILED = "GATEWAYS_FAILED",
-  CHANGE_GATEWAYS = "GATEWAYS_CHANGE_GATEWAYS",
+  LOADING = "DEVICES_LOADING",
+  FAILED = "DEVICES_FAILED",
+  CHANGE_DEVICES = "DEVICES_CHANGE_DEVICES",
 }
 
-export interface GatewaysLoadingAction {
-  type: GatewaysActionType.LOADING;
+export interface DevicesLoadingAction {
+  type: DevicesActionType.LOADING;
 }
 
-export interface GatewaysFailedAction {
-  type: GatewaysActionType.FAILED;
+export interface DevicesFailedAction {
+  type: DevicesActionType.FAILED;
   error: any;
 }
 
-export interface GatewaysChangedAction {
-  type: GatewaysActionType.CHANGE_GATEWAYS;
-  Gateways: Gateway[];
+export interface DevicesChangedAction {
+  type: DevicesActionType.CHANGE_DEVICES;
+  devices: Device[];
 }
 
-export type GatewaysAction = GatewaysLoadingAction | GatewaysFailedAction | GatewaysChangedAction;
+export type DevicesAction = DevicesLoadingAction | DevicesFailedAction | DevicesChangedAction;
 
-function loading(): GatewaysLoadingAction {
+function loading(): DevicesLoadingAction {
   return {
-    type: GatewaysActionType.LOADING,
+    type: DevicesActionType.LOADING,
   };
 }
 
-function failed(error: any): GatewaysFailedAction {
+function failed(error: any): DevicesFailedAction {
   return {
-    type: GatewaysActionType.FAILED,
+    type: DevicesActionType.FAILED,
     error
   };
 }
 
-function changeGateways(Gateways: Gateway[]): GatewaysChangedAction {
+function changeDevices(devices: Device[]): DevicesChangedAction {
   return {
-    type: GatewaysActionType.CHANGE_GATEWAYS,
-    Gateways
+    type: DevicesActionType.CHANGE_DEVICES,
+    devices
   };
 }
 
-type GatewaysThunkAction = ThunkAction<
+type DevicesThunkAction = ThunkAction<
   void,
   RootState,
   unknown,
-  Action<GatewaysActionType>
+  Action<DevicesActionType>
 >;
 
-const loadGateways = (): GatewaysThunkAction => async (dispatch, getState) => {
+const loadDevices = (): DevicesThunkAction => async (dispatch, getState) => {
   dispatch(loading());
 
   try {
-    const Gateways: Gateway[] = await GatewaysService.Gateways();
+    const devices: Device[] = await devicesService.devices();
 
-    dispatch(changeGateways(Gateways));
+    dispatch(changeDevices(devices));
   } catch (e) {
     dispatch(failed(e));
   }
 };
 
-const createGateway = (
+const createDevice = (
   name: string,
-): GatewaysThunkAction => async (dispatch, getState) => {
+): DevicesThunkAction => async (dispatch, getState) => {
   dispatch(loading());
 
   try {
-    const Gateways: Gateway[] = await GatewaysService.create(name);
+    const devices: Device[] = await devicesService.create(name);
 
-    dispatch(changeGateways(Gateways));
+    dispatch(changeDevices(devices));
   } catch (e) {
     dispatch(failed(e));
   }
@@ -82,6 +82,6 @@ const createGateway = (
 
 
 export const actions = {
-  loadGateways,
-  createGateway,
+  loadDevices,
+  createDevice,
 };
