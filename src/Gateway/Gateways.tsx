@@ -16,11 +16,7 @@ import { GatewaysTable } from "./GatewaysTable";
 
 const mapState = (state: RootState) => ({
     loading: state.Gateways.loading,
-<<<<<<< HEAD:src/Gateway/Gateways.tsx
     Gateways: state.Gateways.Gateways,
-=======
-        Gateways: state.Gateways.Gateways,
->>>>>>> 53aecffd151c6e871747f41b4c65ce6d99cee5b7:src/Gateway/Devices.tsx
 });
 
 const mapDispatch = {
@@ -36,11 +32,7 @@ type Props = PropsFromRedux;
 
 function Gateways({
     loading,
-<<<<<<< HEAD:src/Gateway/Gateways.tsx
     devices,
-=======
-    Gateways,
->>>>>>> 53aecffd151c6e871747f41b4c65ce6d99cee5b7:src/Gateway/Devices.tsx
     createGateway,
     loadGateways,
     notify,

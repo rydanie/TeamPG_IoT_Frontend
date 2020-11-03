@@ -6,11 +6,7 @@ import {
 import { Gateway } from "./redux/Gateways-state";
 
 interface GatewaysTableProps {
-<<<<<<< HEAD:src/Gateway/GatewaysTable.tsx
     Gateways?: Gateway[];
-=======
-        Gateways?: Gateway[];
->>>>>>> 53aecffd151c6e871747f41b4c65ce6d99cee5b7:src/Gateway/DevicesTable.tsx
 }
 
 export function GatewaysTable({ Gateways }: GatewaysTableProps): JSX.Element {
