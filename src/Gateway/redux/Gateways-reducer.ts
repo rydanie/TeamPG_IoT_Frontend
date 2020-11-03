@@ -28,7 +28,7 @@ export function GatewaysReducer(
     case GatewaysActionType.CHANGE_GATEWAYS:
       return {
         ...state,
-        devices: (action as GatewaysChangedAction).Gateways,
+        Gateways: (action as GatewaysChangedAction).Gateways,
 
         loading: false,
         error: undefined,

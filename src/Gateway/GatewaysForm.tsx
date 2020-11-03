@@ -22,7 +22,7 @@ interface GatewaysFormProps {
     onCreateGateway: (name: string) => void;
 }
 
-export default function GatewaysForm({ loading, onCreateDevice }: GatewaysFormProps): JSX.Element {
+export default function GatewaysForm({ loading, onCreateGateway }: GatewaysFormProps): JSX.Element {
     const { register, errors, control, handleSubmit } = useForm<FormInput>();
     const onSubmit = (data: FormInput) => {
         onCreateGateway(data.name);

@@ -21,7 +21,7 @@ const mapState = (state: RootState) => ({
 
 const mapDispatch = {
     loadGateways: GatewaysActions.loadGateways,
-    createGateway: GatewaysActions.createGateway,
+    createGateway: GatewaysActions.createGateways,
     notify: systemActions.notify
 };
 
@@ -32,7 +32,7 @@ type Props = PropsFromRedux;
 
 function Gateways({
     loading,
-    devices,
+    Gateways,
     createGateway,
     loadGateways,
     notify,

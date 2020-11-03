@@ -3,10 +3,10 @@ import React from "react";
 import {
     Table,
 } from "reactstrap";
-import { Gateway } from "./redux/Gateways-state";
+import { Gateways } from "./redux/Gateways-state";
 
 interface GatewaysTableProps {
-    Gateways?: Gateway[];
+    Gateways?: Gateways[];
 }
 
 export function GatewaysTable({ Gateways }: GatewaysTableProps): JSX.Element {
@@ -21,7 +21,7 @@ export function GatewaysTable({ Gateways }: GatewaysTableProps): JSX.Element {
         <tbody>
             {Gateways?.map((Gateway) => {
                 return (
-                    <tr key={Gateway.id}>
+                    <tr key={Gateway.macId}>
                         <th scope="row">
                             {Gateway.name}
                         </th>
