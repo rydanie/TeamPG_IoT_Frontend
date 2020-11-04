@@ -1,7 +1,7 @@
 import axios, { AxiosInstance } from "axios";
 import { Gateways } from "Gateway/redux/Gateways-state";
 
-class GatewayService {
+class GatewaysService {
     private http: AxiosInstance;
     constructor(baseUrl: string) {
         this.http = axios.create({
@@ -51,8 +51,8 @@ class GatewayService {
 
 }
 
-const gatewaysService = new gatewaysService(//this error solution is
+const gatewaysService = new GatewaysService(//this error solution is
 //https://stackoverflow.com/questions/41944650/this-implicitly-has-type-any-because-it-does-not-have-a-type-annotation
-    "http://localhost:8080/Gateway"
+    "http://localhost:8080/gateways"
 );
 export default gatewaysService;
