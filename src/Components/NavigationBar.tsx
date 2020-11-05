@@ -28,6 +28,15 @@ export default function NavigationBar(): JSX.Element {
               <NavLink href="/gateways/">
                 Gateway
               </NavLink>
+              <NavLink href="/devices/">
+                Local View
+              </NavLink>
+              <NavLink href="/devices/">
+                Global View
+              </NavLink>
+              <NavLink href="/devices/">
+                Global View
+              </NavLink>
             </NavItem>
           </Nav>
         </Collapse>
