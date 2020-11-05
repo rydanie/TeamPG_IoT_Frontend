@@ -25,7 +25,7 @@ export default function NavigationBar(): JSX.Element {
               <NavLink href="/devices/">
                 Devices
               </NavLink>
-              <NavLink href="/Gateway/">//inappsmake/Gateway
+              <NavLink href="/gateways/">
                 Gateway
               </NavLink>
             </NavItem>

@@ -1,7 +1,7 @@
 import axios, { AxiosInstance } from "axios";
-import { Gateway } from "Gateway/redux/Gateway-state";
+import { Gateways } from "Gateway/redux/Gateways-state";
 
-class GatewayService {
+class GatewaysService {
     private http: AxiosInstance;
     constructor(baseUrl: string) {
         this.http = axios.create({
@@ -9,7 +9,7 @@ class GatewayService {
         });
     }
 
-    async create(name: string,): Promise<Gateway[]> {
+    async create(name: string,): Promise<Gateways[]> {
         await this.http.post(
             "/",
             { name, },
@@ -21,10 +21,10 @@ class GatewayService {
             }
         );
 
-        return await this.Gateway();
+        return await this.Gateways();
     }
 
-    async Gateways(): Promise<Gateway[]> {
+    async Gateways(): Promise<Gateways[]> {
         const result = await this.http.get(
             "/",
             {
@@ -41,17 +41,18 @@ class GatewayService {
             return Promise.resolve([]);
         }
 
-        return data.map((Gateway: any) => {
+        return data.map((Gateways: any) => {
             return {
-                id: Gateway.id,
-                name: Gateway.name,
+                id: Gateways.id,
+                name: Gateways.name,
             };
         });
     }
 
 }
 
-const GatewayService = new GatewayService(
-    "http://localhost:8080/Gateway"
+const gatewaysService = new GatewaysService(//this error solution is
+//https://stackoverflow.com/questions/41944650/this-implicitly-has-type-any-because-it-does-not-have-a-type-annotation
+    "http://localhost:8080/gateways"
 );
-export default GatewayService;
+export default gatewaysService;

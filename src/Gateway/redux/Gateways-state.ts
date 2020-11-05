@@ -2,10 +2,11 @@ export interface GatewaysState {
     loading: boolean;
     succeed: boolean;
     error?: any;
-    Gateways?: Gateway[];
+    Gateways?: Gateways[];
 }
 
-export interface Gateway {
-    id?: number;
+export interface Gateways {
+    macId?: number;
     name?: string;
+    ipAdd?: number;
 }
