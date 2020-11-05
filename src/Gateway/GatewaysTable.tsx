@@ -10,11 +10,18 @@ interface GatewaysTableProps {
 }
 
 export function GatewaysTable({ Gateways }: GatewaysTableProps): JSX.Element {
-    return <Table className="align-items-center" responsive hover striped>
+   /*to get a new coloumn put it in between tr and it needs a .map */
+   return <Table className="align-items-center" responsive hover striped>
         <thead className="thead-light">
             <tr>
                 {["Name"].map((name) => (
                     <th scope="col">{name}</th>
+                ))}
+                {["Mac Address"].map((id) => (
+                    <th scope="col">{id}</th>
+                ))}
+                {["Ip Address"].map((ipAddress) => (
+                    <th scope="col">{ipAddress}</th>
                 ))}
             </tr>
         </thead>

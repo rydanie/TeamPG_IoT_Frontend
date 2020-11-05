@@ -62,7 +62,7 @@ export default function DevicesForm({ loading, onCreateDevice }: DevicesFormProp
                     />
                     {errors.name &&
                         <div className="alert alert-danger" role="alert">
-                            <strong>Device name</strong> is required
+                            <strong>Mac Address</strong> is required
                                 </div>}
                     <Label for="device-name">Gateway Connected ti:</Label>
                         <Controller
@@ -76,7 +76,7 @@ export default function DevicesForm({ loading, onCreateDevice }: DevicesFormProp
                     />
                     {errors.name &&
                         <div className="alert alert-danger" role="alert">
-                            <strong>Device name</strong> is required
+                            <strong>Gateway Name</strong> is required
                                 </div>}
                 </FormGroup>
                 <Button

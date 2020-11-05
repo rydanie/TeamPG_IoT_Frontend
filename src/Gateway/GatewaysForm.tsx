@@ -28,6 +28,8 @@ export default function GatewaysForm({ loading, onCreateGateway }: GatewaysFormP
         onCreateGateway(data.name);
     };
 
+    /*name is the devices name, id is mac address, required means it must be entered
+    before it lets you move on*/
     return <Card className="col-lg-6">
         <CardHeader>
             <h3 className="mb-0">GATEWAY ENROLLEMENT</h3>
@@ -35,13 +37,13 @@ export default function GatewaysForm({ loading, onCreateGateway }: GatewaysFormP
         <CardBody>
             <Form onSubmit={handleSubmit(onSubmit)}>
                 <FormGroup>
-                    <Label for="Gateway-name">Name</Label>
+                    <Label for="Gateway-name">Gateway Name</Label>
                     <Controller
                         as={Input}
                         name="name"
                         control={control}
                         defaultValue=""
-                        placeholder="Name"
+                        placeholder="Gateway Name"
                         id="Gateway-name"
                         rules={{ required: true }}
                     />
@@ -49,6 +51,34 @@ export default function GatewaysForm({ loading, onCreateGateway }: GatewaysFormP
                         <div className="alert alert-danger" role="alert">
                             <strong>Gateway name</strong> is required
                                 </div>}
+                    <Label for="Gateway-name">Mac Address</Label>
+                        <Controller
+                            as={Input}
+                            name="name"
+                            control={control}
+                            defaultValue=""
+                            placeholder="Mac Address"
+                            id="Gateway-name"
+                            rules={{ required: false }}
+                        />
+                        {errors.name &&
+                            <div className="alert alert-danger" role="alert">
+                                <strong>Mac Address</strong> is required
+                                    </div>}
+                    <Label for="Gateway-name">Ip Address</Label>
+                        <Controller
+                            as={Input}
+                            name="name"
+                            control={control}
+                            defaultValue=""
+                            placeholder="Ip Address"
+                            id="Gateway-name"
+                            rules={{ required: false }}
+                        />
+                        {errors.name &&
+                            <div className="alert alert-danger" role="alert">
+                                <strong>Mac Address</strong> is required
+                                    </div>}
                 </FormGroup>
 
                 <Button
