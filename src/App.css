@@ -28,6 +28,11 @@
   color: #61dafb;
 }
 
+.faq {
+    color: #069420;
+    font-family: Comic Sans MS, cursive, sans-serif;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

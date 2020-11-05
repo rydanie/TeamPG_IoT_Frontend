@@ -8,6 +8,7 @@ import {
   Link
 } from "react-router-dom";
 import Devices from "devices/Devices";
+import Help from "help/Help";
 
 function App() {
   return (
@@ -16,10 +17,21 @@ function App() {
         <div>
           <NavigationBar />
           <Switch>
-            <Route path="/devices">//url
+            <Route path="/devices"><br></br>
               <Devices />
             </Route>
-
+            <Route path="/Gateways"><br></br>
+              <Devices />
+            </Route>
+            <Route path="/global"><br></br>
+              <Devices />
+            </Route>
+            <Route path="/local"><br></br>
+              <Devices />
+            </Route>
+            <Route path="/help"><br></br>
+              <Help />
+            </Route>
           </Switch>
         </div>
       </Router>
