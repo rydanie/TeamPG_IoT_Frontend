@@ -16,7 +16,7 @@ function App() {
         <div>
           <NavigationBar />
           <Switch>
-            <Route path="/devices">//url
+            <Route path="/devices">
               <Devices />
             </Route>
 

@@ -34,14 +34,13 @@ export default function DevicesForm({ loading, onCreateDevice }: DevicesFormProp
         <CardBody>
             <Form onSubmit={handleSubmit(onSubmit)}>
                 <FormGroup>
-
-                    <Label for="device-name">Device Name</Label>
+                    <Label for="device-name">Gateway Name</Label>
                     <Controller
                         as={Input}
                         name="name"
                         control={control}
                         defaultValue=""
-                        placeholder="Name"
+                        placeholder="Gateway Name"
                         id="device-name"
                         rules={{ required: true }}
                     />
@@ -49,6 +48,8 @@ export default function DevicesForm({ loading, onCreateDevice }: DevicesFormProp
                         <div className="alert alert-danger" role="alert">
                             <strong>Device name</strong> is required
                                 </div>}
+                    <Label for="device-name">Device Name</Label>
+
                 </FormGroup>
 
                 <Button
