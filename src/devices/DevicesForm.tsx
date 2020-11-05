@@ -43,6 +43,7 @@ export default function DevicesForm({ loading, onCreateDevice }: DevicesFormProp
                         control={control}
                         defaultValue=""
                         placeholder="Device Name"
+                        id="device-name"
                         rules={{ required: true }}
                     />
                     {errors.name &&
