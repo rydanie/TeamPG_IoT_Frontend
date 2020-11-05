@@ -34,7 +34,8 @@ export default function DevicesForm({ loading, onCreateDevice }: DevicesFormProp
         <CardBody>
             <Form onSubmit={handleSubmit(onSubmit)}>
                 <FormGroup>
-                    <Label for="device-name">Name</Label>
+
+                    <Label for="device-name">Device Name</Label>
                     <Controller
                         as={Input}
                         name="name"
@@ -57,7 +58,6 @@ export default function DevicesForm({ loading, onCreateDevice }: DevicesFormProp
                 >
                     Submit
                 </Button>
-
                 <Button
                     type="submit"
                     color="success"
