@@ -32,18 +32,13 @@ export default function NavigationBar(): JSX.Element {
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/local-view/">
-                Local View
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/global-view/">
+              <NavLink href="/global/">
                 Global View
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/help/">
-                Help
+              <NavLink href="/local/">
+                Local View
               </NavLink>
             </NavItem>
           </Nav>
