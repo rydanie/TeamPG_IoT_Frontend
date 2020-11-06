@@ -84,7 +84,7 @@ export default function DevicesForm({ loading, onCreateDevice }: DevicesFormProp
                     color="success"
                     disabled={loading}
                 >
-                    Submit
+                    Delete
                 </Button>
                 <Button
                     type="submit"

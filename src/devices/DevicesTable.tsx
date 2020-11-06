@@ -14,13 +14,7 @@ export function DevicesTable({ devices }: DevicesTableProps): JSX.Element {
     return <Table className="align-items-center" responsive hover striped>
         <thead className="thead-light">
             <tr>
-                {["Name"].map((name) => (
-                    <th scope="col">{name}</th>
-                ))}
-                {["Mac Address"].map((id) => (
-                    <th scope="col">{id}</th>
-                ))}
-                {["Connected Gateway"].map((name) => (
+                {["Name", "Mac Address", "Connected Gateway"].map((name) => (
                     <th scope="col">{name}</th>
                 ))}
             </tr>
@@ -31,6 +25,9 @@ export function DevicesTable({ devices }: DevicesTableProps): JSX.Element {
                     <tr key={device.id}>
                         <th scope="row">
                             {device.name}
+                        </th>
+                        <th scope="row">
+                            {device.id}
                         </th>
                     </tr>
                 );
