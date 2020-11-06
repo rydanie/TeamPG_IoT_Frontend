@@ -41,6 +41,11 @@ export default function NavigationBar(): JSX.Element {
                 Local View
               </NavLink>
             </NavItem>
+            <NavItem>
+              <NavLink href="/help">
+                Help
+              </NavLink>
+            </NavItem>
           </Nav>
         </Collapse>
       </Navbar>
