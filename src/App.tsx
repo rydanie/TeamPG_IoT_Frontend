@@ -17,19 +17,19 @@ function App() {
         <div>
           <NavigationBar />
           <Switch>
-            <Route path="/devices"><br></br>
+            <Route path="/devices">//url
               <Devices />
             </Route>
-            <Route path="/Gateways"><br></br>
+            <Route path="/Gateways">//url
               <Devices />
             </Route>
-            <Route path="/global"><br></br>
+            <Route path="/global">//url
               <Devices />
             </Route>
-            <Route path="/local"><br></br>
+            <Route path="/local">//url
               <Devices />
             </Route>
-            <Route path="/help"><br></br>
+            <Route path="/help">//url
               <Help />
             </Route>
           </Switch>
