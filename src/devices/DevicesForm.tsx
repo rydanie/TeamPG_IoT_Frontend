@@ -28,7 +28,8 @@ export default function DevicesForm({ loading, onCreateDevice }: DevicesFormProp
     };
 
     /*name is the devices name, id is mac address, required means it must be entered
-    before it lets you move on*/
+    before it lets you move on
+    THis is here to update github*/
     return <Card className="col-lg-6">
         <CardHeader>
             <h3 className="mb-0">DEVICE ENROLLEMENT</h3>
