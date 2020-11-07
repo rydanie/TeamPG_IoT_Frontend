@@ -6,7 +6,8 @@ export interface GatewaysState {
 }
 
 export interface Gateways {
-    macId?: number;
+    id?: number;
+    macId?: string;
     name?: string;
-    ipAdd?: number;
+    ipAdd?: string;
 }
