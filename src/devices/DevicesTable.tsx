@@ -10,10 +10,11 @@ interface DevicesTableProps {
 }
 
 export function DevicesTable({ devices }: DevicesTableProps): JSX.Element {
+    /*to get a new coloumn put it in between tr and it needs a .map */
     return <Table className="align-items-center" responsive hover striped>
         <thead className="thead-light">
             <tr>
-                {["Name"].map((name) => (
+                {["Name", "Mac Address", "Connected Gateway"].map((name) => (
                     <th scope="col">{name}</th>
                 ))}
             </tr>
@@ -24,6 +25,9 @@ export function DevicesTable({ devices }: DevicesTableProps): JSX.Element {
                     <tr key={device.id}>
                         <th scope="row">
                             {device.name}
+                        </th>
+                        <th scope="row">
+                            {device.id}
                         </th>
                     </tr>
                 );

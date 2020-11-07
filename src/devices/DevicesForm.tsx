@@ -47,7 +47,7 @@ export default function DevicesForm({ loading, onCreateDevice }: DevicesFormProp
                     />
                     {errors.name &&
                         <div className="alert alert-danger" role="alert">
-                            <strong>Device name</strong> is required
+                            <strong>Gateway Name</strong> is required
                                 </div>}
                 </FormGroup>
 
@@ -56,7 +56,7 @@ export default function DevicesForm({ loading, onCreateDevice }: DevicesFormProp
                     color="success"
                     disabled={loading}
                 >
-                    Submit
+                    Delete
                 </Button>
                 <Button
                     type="submit"
