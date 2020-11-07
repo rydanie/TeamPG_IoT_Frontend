@@ -12,23 +12,28 @@ import {
 import { useForm, Controller } from "react-hook-form";
 import { Device } from "./redux/devices-state";
 
+    //this is the class for what data is using to store name
     interface FormInput {
-        name: string;
+        tim: string;
+        macAdd: string;
+        conName: string;
     }
 
+    //this is where the onCreateDevice is created and varaibles should be added here
     interface DevicesFormProps {
         loading: boolean;
-        onCreateDevice: (name: string) => void;
+        onCreateDevice: (name: string, macAdd: string, conName: string) => void;
     }
 
+    //this is where onSubmit is created and gets the data
     export default function DevicesForm({ loading, onCreateDevice }: DevicesFormProps): JSX.Element {
         const { register, errors, control, handleSubmit } = useForm<FormInput>();
         const onSubmit = (data: FormInput) => {
-            onCreateDevice(data.name);
+            onCreateDevice(data.tim, data.macAdd, data.conName);
     };
 
     /*name is the devices name, id is mac address, required means it must be entered
-    before it lets you move on*/
+    before it lets you move on, the handleSubmit forces all buttons to be submit buttons*/
     return <Card className="col-lg-6">
         <CardHeader>
             <h3 className="mb-0">DEVICE ENROLLEMENT</h3>
@@ -39,40 +44,40 @@ import { Device } from "./redux/devices-state";
                     <Label for="device-name">Device Name:</Label>
                     <Controller
                        as={Input}
-                        name="name"
+                        name="tim"
                        control={control}
                        defaultValue=""
                        placeholder="Device Name"
                        rules={{ required: true }}
                     />
-                    {errors.name &&
+                    {errors.tim &&
                         <div className="alert alert-danger" role="alert">
-                            <strong>Device name</strong> is required
+                            <strong>Device Name</strong> is required
                                 </div>}
-                    <Label for="device-name">Mac Address:</Label>
+                    <Label for="device-macAdd">Mac Address:</Label>
                     <Controller
                         as={Input}
-                        name="name"
+                        name="macAdd"
                         control={control}
                         defaultValue=""
                         placeholder="Mac Address"
                         rules={{ required: false }}
                     />
-                    {errors.name &&
+                    {errors.tim &&
                         <div className="alert alert-danger" role="alert">
                             <strong>Mac Address</strong> is required
                                 </div>}
-                    <Label for="device-name">Gateway Connected to:</Label>
-                        <Controller
-                            as={Input}
-                            name="name"
-                            control={control}
-                            defaultValue=""
-                            placeholder="Gateway Name"
-                            id="device-name"
-                            rules={{ required: false }}
+                    <Label for="device-conName">Gateway Connected to:</Label>
+                    <Controller
+                        as={Input}
+                        name="conName"
+                        control={control}
+                        defaultValue=""
+                        placeholder="Gateway Name"
+                        id="device-name"
+                        rules={{ required: false }}
                     />
-                    {errors.name &&
+                    {errors.tim &&
                         <div className="alert alert-danger" role="alert">
                             <strong>Gateway Name</strong> is required
                                 </div>}
@@ -83,6 +88,13 @@ import { Device } from "./redux/devices-state";
                     disabled={loading}
                 >
                     Submit
+                </Button>
+                <Button
+                    type="submit"
+                    color="success"
+                    disabled={loading}
+                >
+                    Delete
                 </Button>
             </Form>
         </CardBody>

@@ -15,6 +15,8 @@ import { Gateways } from "./redux/Gateways-state";
 
 interface FormInput {
     name: string;
+    macAdd: string;
+    ipAdd: string;
 }
 
 interface GatewaysFormProps {
@@ -51,43 +53,7 @@ export default function GatewaysForm({ loading, onCreateGateway }: GatewaysFormP
                         <div className="alert alert-danger" role="alert">
                             <strong>Gateway name</strong> is required
                                 </div>}
-                    <Label for="Gateway-name">Mac Address</Label>
-                        <Controller
-                            as={Input}
-                            name="name"
-                            control={control}
-                            defaultValue=""
-                            placeholder="Mac Address"
-                            id="Gateway-name"
-                            rules={{ required: false }}
-                        />
-                        {errors.name &&
-                            <div className="alert alert-danger" role="alert">
-                                <strong>Mac Address</strong> is required
-                                    </div>}
-                    <Label for="Gateway-name">Ip Address</Label>
-                        <Controller
-                            as={Input}
-                            name="name"
-                            control={control}
-                            defaultValue=""
-                            placeholder="Ip Address"
-                            id="Gateway-name"
-                            rules={{ required: false }}
-                        />
-                        {errors.name &&
-                            <div className="alert alert-danger" role="alert">
-                                <strong>Mac Address</strong> is required
-                                    </div>}
                 </FormGroup>
-
-                <Button
-                    type="submit"
-                    color="success"
-                    disabled={loading}
-                >
-                    Submit
-                </Button>
             </Form>
         </CardBody>
     </Card>;
