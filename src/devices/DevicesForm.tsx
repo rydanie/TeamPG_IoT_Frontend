@@ -52,7 +52,7 @@ import { Device } from "./redux/devices-state";
                     />
                     {errors.tim &&
                         <div className="alert alert-danger" role="alert">
-                            <strong>Device Name</strong> is required
+                            <strong>Device Mac Address</strong> is required
                                 </div>}
                     <Label for="device-macAdd">Mac Address:</Label>
                     <Controller
