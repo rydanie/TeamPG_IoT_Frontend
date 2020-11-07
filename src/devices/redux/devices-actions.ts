@@ -67,12 +67,12 @@ const loadDevices = (): DevicesThunkAction => async (dispatch, getState) => {
 };
 
 const createDevice = (
-  name: string, macAdd:string, conName: string
+  name: string,
 ): DevicesThunkAction => async (dispatch, getState) => {
   dispatch(loading());
 
   try {
-    const devices: Device[] = await devicesService.create(name, macAdd, conName);
+    const devices: Device[] = await devicesService.create(name);
 
     dispatch(changeDevices(devices));
   } catch (e) {

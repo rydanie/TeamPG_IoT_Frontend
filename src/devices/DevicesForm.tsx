@@ -14,7 +14,7 @@ import { Device } from "./redux/devices-state";
 
     //this is the class for what data is using to store name
     interface FormInput {
-        name: string;
+        tim: string;
         macAdd: string;
         conName: string;
     }
@@ -29,8 +29,9 @@ import { Device } from "./redux/devices-state";
     export default function DevicesForm({ loading, onCreateDevice }: DevicesFormProps): JSX.Element {
         const { register, errors, control, handleSubmit } = useForm<FormInput>();
         const onSubmit = (data: FormInput) => {
-            onCreateDevice(data.name, data.macAdd, data.conName);
+            onCreateDevice(data.tim, data.macAdd, data.conName);
     };
+
     /*name is the devices name, id is mac address, required means it must be entered
     before it lets you move on, the handleSubmit forces all buttons to be submit buttons*/
     return <Card className="col-lg-6">
@@ -43,13 +44,13 @@ import { Device } from "./redux/devices-state";
                     <Label for="device-name">Device Name:</Label>
                     <Controller
                        as={Input}
-                        name="name"
+                        name="tim"
                        control={control}
                        defaultValue=""
                        placeholder="Device Name"
                        rules={{ required: true }}
                     />
-                    {errors.name &&
+                    {errors.tim &&
                         <div className="alert alert-danger" role="alert">
                             <strong>Device Name</strong> is required
                                 </div>}
@@ -60,9 +61,9 @@ import { Device } from "./redux/devices-state";
                         control={control}
                         defaultValue=""
                         placeholder="Mac Address"
-                        rules={{ required: true }}
+                        rules={{ required: false }}
                     />
-                    {errors.name &&
+                    {errors.tim &&
                         <div className="alert alert-danger" role="alert">
                             <strong>Mac Address</strong> is required
                                 </div>}
@@ -74,9 +75,9 @@ import { Device } from "./redux/devices-state";
                         defaultValue=""
                         placeholder="Gateway Name"
                         id="device-name"
-                        rules={{ required: true }}
+                        rules={{ required: false }}
                     />
-                    {errors.name &&
+                    {errors.tim &&
                         <div className="alert alert-danger" role="alert">
                             <strong>Gateway Name</strong> is required
                                 </div>}

@@ -9,10 +9,10 @@ class DevicesService {
         });
     }
 
-    async create(name: string, macAdd: string, conName: string): Promise<Device[]> {
+    async create(name: string,): Promise<Device[]> {
         await this.http.post(
             "/",
-            { name, macAdd, conName},
+            { name, },
             {
                 headers: {
                     "Content-Type": "application/json",

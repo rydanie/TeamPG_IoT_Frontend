@@ -9,7 +9,7 @@ class GatewaysService {
         });
     }
 
-    async create(name: string, macAdd: string, ipAdd: string): Promise<Gateways[]> {
+    async create(name: string,): Promise<Gateways[]> {
         await this.http.post(
             "/",
             { name, macAdd, ipAdd},
@@ -45,15 +45,14 @@ class GatewaysService {
             return {
                 id: Gateways.id,
                 name: Gateways.name,
-                macAdd: Gateways.macAdd,
-                ipAdd: Gateways.ipAdd
             };
         });
     }
 
 }
 
-const gatewaysService = new GatewaysService(
+const gatewaysService = new GatewaysService(//this error solution is
+//https://stackoverflow.com/questions/41944650/this-implicitly-has-type-any-because-it-does-not-have-a-type-annotation
     "http://localhost:8080/gateways"
 );
 export default gatewaysService;
