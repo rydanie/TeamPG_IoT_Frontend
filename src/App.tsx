@@ -1,6 +1,5 @@
 import React from "react";
 import "./App.css";
-import Gateway from "Gateway/Gateways";
 import NavigationBar from "./Components/NavigationBar";
 import {
   BrowserRouter as Router,
@@ -9,6 +8,7 @@ import {
   Link
 } from "react-router-dom";
 import Devices from "devices/Devices";
+import Help from "help/Help";
 
 function App() {
   return (
@@ -17,11 +17,20 @@ function App() {
         <div>
           <NavigationBar />
           <Switch>
-            <Route path="/devices">
+            <Route path="/devices"><br></br>
               <Devices />
             </Route>
-            <Route path="/Gateways">
-                <Gateway />
+            <Route path="/Gateways"><br></br>
+              <Devices />
+            </Route>
+            <Route path="/global"><br></br>
+              <Devices />
+            </Route>
+            <Route path="/local"><br></br>
+              <Devices />
+            </Route>
+            <Route path="/help"><br></br>
+              <Help />
             </Route>
           </Switch>
         </div>

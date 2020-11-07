@@ -27,8 +27,6 @@ export default function DevicesForm({ loading, onCreateDevice }: DevicesFormProp
         onCreateDevice(data.name);
     };
 
-    /*name is the devices name, id is mac address, required means it must be entered
-    before it lets you move on*/
     return <Card className="col-lg-6">
         <CardHeader>
             <h3 className="mb-0">DEVICE ENROLLEMENT</h3>
@@ -36,49 +34,23 @@ export default function DevicesForm({ loading, onCreateDevice }: DevicesFormProp
         <CardBody>
             <Form onSubmit={handleSubmit(onSubmit)}>
                 <FormGroup>
-                    <Label for="device-name">Device Name:</Label>
+
+                    <Label for="device-name">Device Name</Label>
                     <Controller
                         as={Input}
                         name="name"
                         control={control}
                         defaultValue=""
-                        placeholder="Device Name"
+                        placeholder="Name"
                         id="device-name"
                         rules={{ required: true }}
-                    />
-                    {errors.name &&
-                        <div className="alert alert-danger" role="alert">
-                            <strong>Device name</strong> is required
-                                </div>}
-                    <Label for="device-name">Mac Address:</Label>
-                    <Controller
-                        as={Input}
-                        name="name"
-                        control={control}
-                        defaultValue=""
-                        placeholder="Mac Address"
-                        id="device-name"
-                        rules={{ required: false }}
-                    />
-                    {errors.name &&
-                        <div className="alert alert-danger" role="alert">
-                            <strong>Mac Address</strong> is required
-                                </div>}
-                    <Label for="device-name">Gateway Connected ti:</Label>
-                        <Controller
-                            as={Input}
-                            name="name"
-                            control={control}
-                            defaultValue=""
-                            placeholder="Gateway Name"
-                            id="device-name"
-                            rules={{ required: false }}
                     />
                     {errors.name &&
                         <div className="alert alert-danger" role="alert">
                             <strong>Gateway Name</strong> is required
                                 </div>}
                 </FormGroup>
+
                 <Button
                     type="submit"
                     color="success"
