@@ -12,24 +12,23 @@ import {
 import { useForm, Controller } from "react-hook-form";
 import { Device } from "./redux/devices-state";
 
-interface FormInput {
-    name: string;
-}
+    interface FormInput {
+        name: string;
+    }
 
-interface DevicesFormProps {
-    loading: boolean;
-    onCreateDevice: (name: string) => void;
-}
+    interface DevicesFormProps {
+        loading: boolean;
+        onCreateDevice: (name: string) => void;
+    }
 
-export default function DevicesForm({ loading, onCreateDevice }: DevicesFormProps): JSX.Element {
-    const { register, errors, control, handleSubmit } = useForm<FormInput>();
-    const onSubmit = (data: FormInput) => {
-        onCreateDevice(data.name);
+    export default function DevicesForm({ loading, onCreateDevice }: DevicesFormProps): JSX.Element {
+        const { register, errors, control, handleSubmit } = useForm<FormInput>();
+        const onSubmit = (data: FormInput) => {
+            onCreateDevice(data.name);
     };
 
     /*name is the devices name, id is mac address, required means it must be entered
-    before it lets you move on
-    THis is here to update github*/
+    before it lets you move on*/
     return <Card className="col-lg-6">
         <CardHeader>
             <h3 className="mb-0">DEVICE ENROLLEMENT</h3>
@@ -39,13 +38,12 @@ export default function DevicesForm({ loading, onCreateDevice }: DevicesFormProp
                 <FormGroup>
                     <Label for="device-name">Device Name:</Label>
                     <Controller
-                        as={Input}
+                       as={Input}
                         name="name"
-                        control={control}
-                        defaultValue=""
-                        placeholder="Device Name"
-                        id="device-name"
-                        rules={{ required: true }}
+                       control={control}
+                       defaultValue=""
+                       placeholder="Device Name"
+                       rules={{ required: true }}
                     />
                     {errors.name &&
                         <div className="alert alert-danger" role="alert">
@@ -58,14 +56,13 @@ export default function DevicesForm({ loading, onCreateDevice }: DevicesFormProp
                         control={control}
                         defaultValue=""
                         placeholder="Mac Address"
-                        id="device-name"
                         rules={{ required: false }}
                     />
                     {errors.name &&
                         <div className="alert alert-danger" role="alert">
                             <strong>Mac Address</strong> is required
                                 </div>}
-                    <Label for="device-name">Gateway Connected ti:</Label>
+                    <Label for="device-name">Gateway Connected to:</Label>
                         <Controller
                             as={Input}
                             name="name"
@@ -85,14 +82,7 @@ export default function DevicesForm({ loading, onCreateDevice }: DevicesFormProp
                     color="success"
                     disabled={loading}
                 >
-                    Delete
-                </Button>
-                <Button
-                    type="submit"
-                    color="success"
-                    disabled={loading}
-                >
-                    Delete
+                    Submit
                 </Button>
             </Form>
         </CardBody>

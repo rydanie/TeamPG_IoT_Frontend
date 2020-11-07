@@ -26,7 +26,7 @@ class DevicesService {
 
     async devices(): Promise<Device[]> {
         const result = await this.http.get(
-            "/",
+            "/getDevices",
             {
                 headers: {
                     "Content-Type": "application/json",
@@ -41,10 +41,13 @@ class DevicesService {
             return Promise.resolve([]);
         }
 
+        /*this is where it gets all of the info for device*/
         return data.map((device: any) => {
             return {
                 id: device.id,
                 name: device.name,
+                macAdd: device.macAdd,
+                conName: device.conName,
             };
         });
     }

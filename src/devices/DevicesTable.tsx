@@ -26,9 +26,12 @@ export function DevicesTable({ devices }: DevicesTableProps): JSX.Element {
                         <th scope="row">
                             {device.name}
                         </th>
-                        <th scope="row">
-                            {device.id}
-                        </th>
+                       <th scope="row">
+                            {device.macAdd}
+                       </th>
+                       <th scope="row">
+                            {device.conName}
+                       </th>
                     </tr>
                 );
             })}
