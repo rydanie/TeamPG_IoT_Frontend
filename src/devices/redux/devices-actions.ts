@@ -67,7 +67,7 @@ const loadDevices = (): DevicesThunkAction => async (dispatch, getState) => {
 };
 
 const createDevice = (
-  name: string, macAdd:string, conName: string
+  name: string, macAdd: string, conName: string
 ): DevicesThunkAction => async (dispatch, getState) => {
   dispatch(loading());
 

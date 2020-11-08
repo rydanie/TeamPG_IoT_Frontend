@@ -26,12 +26,6 @@ export function GatewaysTable({ Gateways }: GatewaysTableProps): JSX.Element {
                         <th scope="row">
                             {Gateway.name}
                         </th>
-                        <th scope="row">
-                            {Gateway.macId}
-                        </th>
-                        <th scope="row">
-                            {Gateway.ipAdd}
-                        </th>
                     </tr>
                 );
             })}

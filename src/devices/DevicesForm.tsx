@@ -31,6 +31,7 @@ import { Device } from "./redux/devices-state";
         const onSubmit = (data: FormInput) => {
             onCreateDevice(data.name, data.macAdd, data.conName);
     };
+
     /*name is the devices name, id is mac address, required means it must be entered
     before it lets you move on, the handleSubmit forces all buttons to be submit buttons*/
     return <Card className="col-lg-6">
@@ -60,7 +61,7 @@ import { Device } from "./redux/devices-state";
                         control={control}
                         defaultValue=""
                         placeholder="Mac Address"
-                        rules={{ required: true }}
+                        rules={{ required: false }}
                     />
                     {errors.name &&
                         <div className="alert alert-danger" role="alert">
@@ -74,7 +75,7 @@ import { Device } from "./redux/devices-state";
                         defaultValue=""
                         placeholder="Gateway Name"
                         id="device-name"
-                        rules={{ required: true }}
+                        rules={{ required: false }}
                     />
                     {errors.name &&
                         <div className="alert alert-danger" role="alert">
