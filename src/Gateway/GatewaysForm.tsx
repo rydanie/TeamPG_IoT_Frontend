@@ -21,13 +21,13 @@ interface FormInput {
 
 interface GatewaysFormProps {
     loading: boolean;
-    onCreateGateway: (name: string) => void;
+    onCreateGateway: (name: string, macAdd: string, ipAdd: string) => void;
 }
 
 export default function GatewaysForm({ loading, onCreateGateway }: GatewaysFormProps): JSX.Element {
     const { register, errors, control, handleSubmit } = useForm<FormInput>();
     const onSubmit = (data: FormInput) => {
-        onCreateGateway(data.name);
+        onCreateGateway(data.name, data.macAdd, data.ipAdd);
     };
 
     /*name is the devices name, id is mac address, required means it must be entered

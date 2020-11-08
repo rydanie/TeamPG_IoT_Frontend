@@ -9,7 +9,7 @@ class GatewaysService {
         });
     }
 
-    async create(name: string,): Promise<Gateways[]> {
+    async create(name: string, macAdd: string, ipAdd: string): Promise<Gateways[]> {
         await this.http.post(
             "/",
             { name, macAdd, ipAdd},

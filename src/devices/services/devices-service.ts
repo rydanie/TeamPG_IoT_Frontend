@@ -9,17 +9,24 @@ class DevicesService {
         });
     }
 
-    async create(name: string,): Promise<Device[]> {
+    async create(name: string, macAdd: string, conName: string): Promise<Device[]> {
+        /*
         await this.http.post(
             "/",
-            { name, },
+            { name, macAdd, conName},
             {
                 headers: {
                     "Content-Type": "application/json",
                     Accept: "application/json",
                 },
             }
-        );
+        );*/
+
+        axios.post("http://localhost:3000/device",{
+            "name": name,
+            "macAdd": macAdd,
+            "conName": conName,
+        });
 
         return await this.devices();
     }
