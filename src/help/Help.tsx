@@ -1,18 +1,22 @@
 import React from "react";
 import { Table } from "reactstrap";
-import{
-    Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button,
-    Dropdown, DropdownToggle, DropdownMenu,
-    DropdownItem
-} from "reactstrap";
+import Dropdown from "../bootstrap/js/bootstrap.js"
 
 import "../App.css";
 
 export default function Help(){
 
-    return <div>
-
+        return <div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Action
+        </button>
+        <div class="dropdown-menu">
+            <a class="dropdown-item">Action</a>
+            <a class="dropdown-item">Another action</a>
+            <a class="dropdown-item">Something else here</a>
+        </div>
+    </div>
          <Table>
              <thread align="center">
                  <tr>
@@ -20,6 +24,9 @@ export default function Help(){
                  </tr>
              </thread>
              <tbody>
+                 <tr>
+
+                 </tr>
                  <tr class="bg_1">
                      <td><div class="question"><b>Q.</b> How do I add a device?</div>
                          <br></br><div class="answer"><b>A.</b> To add a device, you need to ...</div></td>
