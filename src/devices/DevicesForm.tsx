@@ -61,7 +61,7 @@ import { Device } from "./redux/devices-state";
                         control={control}
                         defaultValue=""
                         placeholder="Mac Address"
-                        rules={{ required: false }}
+                        rules={{ required: true }}
                     />
                     {errors.name &&
                         <div className="alert alert-danger" role="alert">
@@ -75,7 +75,7 @@ import { Device } from "./redux/devices-state";
                         defaultValue=""
                         placeholder="Gateway Name"
                         id="device-name"
-                        rules={{ required: false }}
+                        rules={{ required: true }}
                     />
                     {errors.name &&
                         <div className="alert alert-danger" role="alert">
@@ -88,13 +88,6 @@ import { Device } from "./redux/devices-state";
                     disabled={loading}
                 >
                     Submit
-                </Button>
-                <Button
-                    type="submit"
-                    color="success"
-                    disabled={loading}
-                >
-                    Delete
                 </Button>
             </Form>
         </CardBody>
