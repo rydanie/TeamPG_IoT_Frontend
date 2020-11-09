@@ -7,16 +7,7 @@ import "../App.css";
 export default function Help(){
 
         return <div>
-    <div class="btn-group">
-        <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Action
-        </button>
-        <div class="dropdown-menu">
-            <a class="dropdown-item">Action</a>
-            <a class="dropdown-item">Another action</a>
-            <a class="dropdown-item">Something else here</a>
-        </div>
-    </div>
+
          <Table>
              <thread align="center">
                  <tr>
