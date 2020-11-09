@@ -53,6 +53,34 @@ export default function GatewaysForm({ loading, onCreateGateway }: GatewaysFormP
                         <div className="alert alert-danger" role="alert">
                             <strong>Gateway name</strong> is required
                                 </div>}
+                    <Label for="Mac-Address">Mac Address</Label>
+                    <Controller
+                            as={Input}
+                    name="macAddress"
+                    control={control}
+                    defaultValue=""
+                    placeholder="Mac Address"
+                    id="MAC-Address"
+                    rules={{ required: true }}
+                    />
+                    {errors.name &&
+                    <div className="alert alert-danger" role="alert">
+                        <strong>Mac Address</strong> is required
+                    </div>}
+                    <Label for="Gateway-name">IP Address</Label>
+                    <Controller
+                            as={Input}
+                    name="ipAddress"
+                    control={control}
+                    defaultValue=""
+                    placeholder="IP Address"
+                    id="Gateway-name"
+                    rules={{ required: true }}
+                    />
+                    {errors.name &&
+                    <div className="alert alert-danger" role="alert">
+                        <strong>IP Address</strong> is required
+                    </div>}
                 </FormGroup>
                 <Button
                     type="submit"
