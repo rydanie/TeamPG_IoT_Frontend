@@ -8,6 +8,7 @@ import {
   Link
 } from "react-router-dom";
 import Devices from "devices/Devices";
+import Gateways from "Gateway/Gateways";
 import Help from "help/Help";
  
 function App() {
@@ -21,7 +22,7 @@ function App() {
               <Devices />
             </Route>
             <Route path="/Gateways"><br></br>
-              <Devices />
+              <Gateways />
             </Route>
             <Route path="/global"><br></br>
               <Devices />
