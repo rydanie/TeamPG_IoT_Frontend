@@ -67,12 +67,12 @@ const loadGateways = (): GatewaysThunkAction => async (dispatch, getState) => {
 };
 
 const createGateways = (
-  name: string, macAdd: string, ipAdd: string,
+  name: string/*, macAdd: string, ipAdd: string,*/
 ): GatewaysThunkAction => async (dispatch, getState) => {
   dispatch(loading());
 
   try {
-    const Gateways: Gateways[] = await GatewaysService.create(name, macAdd, ipAdd);
+    const Gateways: Gateways[] = await GatewaysService.create(name/*, macAdd, ipAdd*/);
 
     dispatch(changeGateways(Gateways));
   } catch (e) {
