@@ -5,37 +5,40 @@ import {
 } from "reactstrap";
 import { Gateways } from "./redux/Gateways-state";
 
+import{gWays} from "./GatewaysForm"
+
 interface GatewaysTableProps {
     Gateways?: Gateways[];
 }
 
-let gWays = new Array(10);
-
-var gWay = {macAdd:"", nameOf:"", ipAdd:""};
-
-gWay.macAdd = "32:23:54:72:34";
-gWay.nameOf = "Kevin's Van";
-gWay.ipAdd = "123.45.322";
-
-gWays[0] = gWay;
-
-export function GatewaysTable({ Gateways }: GatewaysTableProps): JSX.Element {
+export function GatewaysTable({ devices }: GatewaysTableProps): JSX.Element {
+    /*to get a new coloumn put it in between tr and it needs a .map */
     return <Table className="align-items-center" responsive hover striped>
-
-    <thead className="thead-light">
+        <thead className="thead-light">
             <tr>
-                <th scope="col">Gateway</th>
-                <th scope="col">Mac Address</th>
-                <th scope="col">IP Address</th>
-
+                {["Name", "Mac Address", "IP Address", "Delete Gateway"].map((name) => (
+                    <th scope="col">{name}</th>
+                ))}
             </tr>
         </thead>
         <tbody>
-                    <tr>
-                        <th scope="col">{gWays[0].nameOf}</th>
-                        <th scope="col">{gWays[0].macAdd}</th>
-                        <th scope="row">{gWays[0].ipAdd}</th>
+            {Gateways?.map((Gateways) => {
+                return (
+                    <tr key={Gateways.id}>
+                        <th scope="row">
+                            {Gateways.name}
+                        </th>
+                       <th scope="row">
+                            {Gateways.macAdd}
+                       </th>
+                       <th scope="row">
+                            {Gateways.ipAdd}
+                       </th>
+                       <th scope="row">
+                      </th>
                     </tr>
+                );
+            })}
         </tbody>
-    </Table>
+    </Table>;
 }

@@ -37,7 +37,7 @@ export default function NavigationBar(): JSX.Element {
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/local/">
+              <NavLink href="/LocalView/">
                 Local View
               </NavLink>
             </NavItem>
