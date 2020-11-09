@@ -73,7 +73,7 @@ export default function GatewaysForm({ loading, onCreateGateway }: GatewaysFormP
                        name="ipAdd"
                        control={control}
                        defaultValue=""
-                       placeholder="Gateway Mac Address"
+                       placeholder="Gateway IP Address"
                        id="Gateway-ipAdd"
                        rules={{ required: true }}
                     />

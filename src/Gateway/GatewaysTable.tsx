@@ -13,7 +13,7 @@ export function GatewaysTable({ Gateways }: GatewaysTableProps): JSX.Element {
     return <Table className="align-items-center" responsive hover striped>
         <thead className="thead-light">
             <tr>
-                {["Name"].map((name) => (
+                {["Name", "Mac Address", "IP Address", "Delete Device"].map((name) => (
                     <th scope="col">{name}</th>
                 ))}
             </tr>
@@ -21,7 +21,10 @@ export function GatewaysTable({ Gateways }: GatewaysTableProps): JSX.Element {
         <tbody>
             {Gateways?.map((Gateway) => {
                 return (
-                    <tr key={Gateway.macId}>
+                    <tr key={Gateway.id}>
+                        <th scope="row">
+                            {Gateway.name}
+                        </th>
                         <th scope="row">
                             {Gateway.name}
                         </th>
