@@ -24,7 +24,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/IoT-Backend-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../TeamPG_IoT_Backend" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -46,10 +46,15 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="222" y="66" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1603848770873" />
-    <state x="484" y="117" key="FileChooserDialogImpl" timestamp="1604362027690">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="680" y="167" key="FileChooserDialogImpl" timestamp="1604778989179">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="484" y="117" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1604362027690" />
+    <state x="680" y="167" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1604778989179" />
+    <state x="625" y="224" key="NewModule_or_Project.wizard" timestamp="1604768372506">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="625" y="224" key="NewModule_or_Project.wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1604768372506" />
     <state x="0" y="0" key="SettingsEditor" timestamp="1603570469470">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

@@ -12,7 +12,7 @@ class GatewaysService {
     async create(name: string,): Promise<Gateways[]> {
         await this.http.post(
             "/",
-            { name, },
+            { name, macAdd, ipAdd},
             {
                 headers: {
                     "Content-Type": "application/json",
