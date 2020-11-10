@@ -5,13 +5,13 @@ import {
 } from "reactstrap";
 import { Gateways } from "./redux/Gateways-state";
 
-import{gWays} from "./GatewaysForm"
+//import{gWays} from "./GatewaysForm"
 
 interface GatewaysTableProps {
     Gateways?: Gateways[];
 }
 
-export function GatewaysTable({ devices }: GatewaysTableProps): JSX.Element {
+export function GatewaysTable({ Gateways }: GatewaysTableProps): JSX.Element {
     /*to get a new coloumn put it in between tr and it needs a .map */
     return <Table className="align-items-center" responsive hover striped>
         <thead className="thead-light">

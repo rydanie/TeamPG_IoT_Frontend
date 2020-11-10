@@ -62,6 +62,6 @@ class DevicesService {
 }
 
 const devicesService = new DevicesService(
-    "http://localhost:8080/devices"
+    "http://localhost:3000/devices"
 );
 export default devicesService;

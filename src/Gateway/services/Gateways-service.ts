@@ -9,10 +9,11 @@ class GatewaysService {
         });
     }
 
-    async create(name: string/*, macAdd: string, ipAdd: string*/): Promise<Gateways[]> {
+    async create(name: string, macAdd: string, ipAdd: string): Promise<Gateways[]> {
+        console.log(name+ " "+ macAdd+ " "+ipAdd);
         await this.http.post(
             "/",
-            { name/*, macAdd, ipAdd*/},
+            { name, macAdd, ipAdd},
             {
                 headers: {
                     "Content-Type": "application/json",
@@ -26,7 +27,7 @@ class GatewaysService {
 
     async Gateways(): Promise<Gateways[]> {
         const result = await this.http.get(
-            "/",
+            "/getgateways",
             {
                 headers: {
                     "Content-Type": "application/json",
@@ -42,11 +43,13 @@ class GatewaysService {
         }
 
         return data.map((Gateways: any) => {
+           console.log(Gateways.ipaddress);
+           console.log(Gateways.name);
             return {
                 id: Gateways.id,
                 name: Gateways.name,
                 macAdd: Gateways.macAdd,
-                ipAdd: Gateways.ipAdd
+                ipAdd: Gateways.ipaddress
             };
         });
     }
@@ -54,6 +57,6 @@ class GatewaysService {
 }
 
 const gatewaysService = new GatewaysService(
-    "http://localhost:8080/gateway"
+    "http://localhost:3000/gateways",
 );
 export default gatewaysService;
