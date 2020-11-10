@@ -2,8 +2,10 @@ import React from "react";
 
 import {
     Table,
+    Button
 } from "reactstrap";
 import { Gateways } from "./redux/Gateways-state";
+import GatewaysService from "Gateway/services/Gateways-service";
 
 //import{gWays} from "./GatewaysForm"
 
@@ -16,8 +18,8 @@ export function GatewaysTable({ Gateways }: GatewaysTableProps): JSX.Element {
     return <Table className="align-items-center" responsive hover striped>
         <thead className="thead-light">
             <tr>
-                {["Name", "Mac Address", "IP Address", "Delete Device"].map((name) => (
-                {["Name", "Mac Address", "IP Address", "Delete Gateway"].map((name) => (
+                {["Name", "Mac Address", "IP Address", "Delete Gateway",
+                "Edit Gateway"].map((name) => (
                     <th scope="col">{name}</th>
                 ))}
             </tr>
@@ -25,10 +27,6 @@ export function GatewaysTable({ Gateways }: GatewaysTableProps): JSX.Element {
         <tbody>
             {Gateways?.map((Gateways) => {
                 return (
-                    <tr key={Gateway.id}>
-                        <th scope="row">
-                            {Gateway.name}
-                        </th>
                     <tr key={Gateways.id}>
                         <th scope="row">
                             {Gateways.name}
@@ -40,7 +38,16 @@ export function GatewaysTable({ Gateways }: GatewaysTableProps): JSX.Element {
                             {Gateways.ipAdd}
                        </th>
                        <th scope="row">
+                       <Button outline color="danger" onClick={ (e) =>
+                        console.log(GatewaysService.delete(Gateways.id),
+                        window.location.reload()
+                        ) }>Delete Gateway</Button>
                       </th>
+                       <th scope="row">
+                         <Button
+
+                           >Edit Gateway</Button>
+                        </th>
                     </tr>
                 );
             })}
