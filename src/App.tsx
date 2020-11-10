@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import Devices from "devices/Devices";
 import Gateways from "Gateway/Gateways";
+import LocalView from "LocalView/LocalView"
 import Help from "help/Help";
  
 function App() {
@@ -27,8 +28,8 @@ function App() {
             <Route path="/global"><br></br>
               <Devices />
             </Route>
-            <Route path="/local"><br></br>
-              <Devices />
+            <Route path="/LocalView"><br></br>
+              <LocalView />
             </Route>
             <Route path="/help"><br></br>
               <Help />
