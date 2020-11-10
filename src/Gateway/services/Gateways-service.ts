@@ -25,6 +25,11 @@ class GatewaysService {
         return await this.Gateways();
     }
 
+    delete(id: any) {
+        axios.delete("http://localhost:3000/gateways/deleteGateways/"+id);
+        return id;
+    }
+
     async Gateways(): Promise<Gateways[]> {
         const result = await this.http.get(
             "/getgateways",

@@ -71,7 +71,7 @@ export default function GatewaysForm({ loading, onCreateGateway }: GatewaysFormP
         <CardBody>
             <Form onSubmit={handleSubmit(onSubmit)}>
                 <FormGroup>
-                    <Label for="Gateway-name">Gateway Name</Label>
+                    <Label for="Gateway-name">Gateway Name:</Label>
                     <Controller
                         as={Input}
                         name="name"
@@ -83,36 +83,36 @@ export default function GatewaysForm({ loading, onCreateGateway }: GatewaysFormP
                     />
                     {errors.name &&
                         <div className="alert alert-danger" role="alert">
-                            <strong>Gateway name</strong> is required
+                            <strong>Gateway Name Required</strong> is required
                                 </div>}
-                    <Label for="Mac-Address">Mac Address</Label>
-                    <Controller
-                            as={Input}
-                    name="macAdd"
-                    control={control}
-                    defaultValue=""
-                    placeholder="Mac Address"
-                    id="MAC-Address"
-                    rules={{ required: true }}
+                    <Label for="Gateway-macAdd">Gateway Mac Address:</Label>
+                     <Controller
+                        as={Input}
+                        name="macAdd"
+                        control={control}
+                        defaultValue=""
+                        placeholder="Gateway Mac Address"
+                        id="Gateway-macAdd"
+                        rules={{ required: true }}
                     />
                     {errors.name &&
-                    <div className="alert alert-danger" role="alert">
-                        <strong>Mac Address</strong> is required
-                    </div>}
-                    <Label for="Gateway-name">IP Address</Label>
+                        <div className="alert alert-danger" role="alert">
+                            <strong>Gateway Mac Address Required</strong> is required
+                                </div>}
+                    <Label for="Gateway-ipAdd">Gateway IP Address:</Label>
                     <Controller
-                            as={Input}
-                    name="ipAdd"
-                    control={control}
-                    defaultValue=""
-                    placeholder="IP Address"
-                    id="Gateway-name"
-                    rules={{ required: true }}
+                       as={Input}
+                       name="ipAdd"
+                       control={control}
+                       defaultValue=""
+                       placeholder="Gateway IP Address"
+                       id="Gateway-ipAdd"
+                       rules={{ required: true }}
                     />
                     {errors.name &&
-                    <div className="alert alert-danger" role="alert">
-                        <strong>IP Address</strong> is required
-                    </div>}
+                        <div className="alert alert-danger" role="alert">
+                            <strong>Gateway IP Address Required</strong> is required
+                                </div>}
                 </FormGroup>
                 <Button
                     type="submit"

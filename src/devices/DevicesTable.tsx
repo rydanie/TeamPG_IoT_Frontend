@@ -2,8 +2,10 @@ import React from "react";
 
 import {
     Table,
+    Button
 } from "reactstrap";
 import { Device } from "./redux/devices-state";
+import devicesService from "devices/services/devices-service";
 
 interface DevicesTableProps {
     devices?: Device[];
@@ -15,7 +17,7 @@ export function DevicesTable({ devices }: DevicesTableProps): JSX.Element {
     return <Table className="align-items-center" responsive hover striped>
         <thead className="thead-light">
             <tr>
-                {["Name", "Mac Address", "Connected Gateway", "Delete Device"].map((name) => (
+                {["Name", "Mac Address", "Connected Gateway", "Delete Device", "Edit Device"].map((name) => (
                     <th scope="col">{name}</th>
                 ))}
             </tr>
@@ -34,6 +36,15 @@ export function DevicesTable({ devices }: DevicesTableProps): JSX.Element {
                             {device.conName}
                        </th>
                        <th scope="row">
+                       <Button outline color="danger" onClick={ (e) =>
+                           console.log(devicesService.delete(device.id),
+                           window.location.reload()
+                           ) }>Delete Device</Button>
+                      </th>
+                       <th scope="row">
+                       <Button
+
+                         >Edit Device</Button>
                       </th>
                     </tr>
                 );

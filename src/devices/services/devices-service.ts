@@ -22,13 +22,12 @@ class DevicesService {
             }
         );
 
-        /*axios.post("http://localhost:3000/device",{
-            "name": name,
-            "macAdd": macAdd,
-            "conName": conName,
-        });*/
-
         return await this.devices();
+    }
+
+    delete(id: any) {
+        axios.delete("http://localhost:3000/devices/deleteDevices/"+id);
+        return id;
     }
 
     async devices(): Promise<Device[]> {
