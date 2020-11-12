@@ -11,6 +11,7 @@ import Devices from "devices/Devices";
 import Gateways from "Gateway/Gateways";
 import LocalView from "LocalView/LocalView"
 import Help from "help/Help";
+import EditDevice from "EditDevice/EditDevicesForm"
  
 function App() {
   return (
@@ -33,6 +34,9 @@ function App() {
             </Route>
             <Route path="/help"><br></br>
               <Help />
+            </Route>
+            <Route path="/EditDevice"><br></br>
+              <EditDevice />
             </Route>
           </Switch>
         </div>

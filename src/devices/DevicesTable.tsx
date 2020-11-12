@@ -11,6 +11,13 @@ interface DevicesTableProps {
     devices?: Device[];
 }
 
+export let devicesArray = new Array();
+
+       var gWay = {id: "", macAdd:"", nameOf:"", conName:""};
+       //gWay.macAdd = data.macAdd;
+       //gWay.nameOf = data.name;
+       //gWay.ipAdd = data.ipAdd;
+       //devicesArray.push(gWay);
 
 export function DevicesTable({ devices }: DevicesTableProps): JSX.Element {
     /*to get a new coloumn put it in between tr and it needs a .map */
@@ -42,9 +49,10 @@ export function DevicesTable({ devices }: DevicesTableProps): JSX.Element {
                            ) }>Delete Device</Button>
                       </th>
                        <th scope="row">
-                       <Button
-
-                         >Edit Device</Button>
+                       <Button outline color="danger" onClick={ (e) =>
+                          console.log(devicesService.edit(device.id),
+                          window.location.reload()
+                          ) }>Edit Device</Button>
                       </th>
                     </tr>
                 );
