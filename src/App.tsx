@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import Devices from "devices/Devices";
 import Gateways from "Gateway/Gateways";
+import GlobalView from "GlobalView/GlobalView"
 import LocalView from "LocalView/LocalView"
 import Help from "help/Help";
 import EditDevice from "EditDevice/EditDevicesForm"
@@ -27,7 +28,7 @@ function App() {
               <Gateways />
             </Route>
             <Route path="/global"><br></br>
-              <Devices />
+              <GlobalView />
             </Route>
             <Route path="/LocalView"><br></br>
               <LocalView />
