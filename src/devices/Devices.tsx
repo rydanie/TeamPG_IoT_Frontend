@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect, ConnectedProps } from "react-redux";
 
 import { RootState } from "redux/root-reducer";
@@ -13,6 +13,7 @@ import { actions as devicesActions } from "./redux/devices-actions";
 import { actions as systemActions } from "../redux/system-actions";
 import DevicesForm from "./DevicesForm";
 import { DevicesTable } from "./DevicesTable";
+import devicesService from "devices/services/devices-service";
 
 const mapState = (state: RootState) => ({
     loading: state.devices.loading,
@@ -38,7 +39,10 @@ function Devices({
     notify,
 }: Props) {
 
+    let [myDevices, setMyDevices] = useState([]);
+
     useEffect(() => {
+        devicesService.devices().then(devices => {console.log(devices)});
         loadDevices();
     }, []);
 
