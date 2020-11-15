@@ -45,9 +45,6 @@ export default function NavigationBar(): JSX.Element {
               <NavLink href="/help">
                 Help
               </NavLink>
-              <NavLink href="/EditDevice/">
-                  Edit
-                </NavLink>
             </NavItem>
           </Nav>
         </Collapse>
