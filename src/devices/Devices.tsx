@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, ChangeEvent, dropDOwnOpen } from "react";
 import { connect, ConnectedProps } from "react-redux";
-
 import { RootState } from "redux/root-reducer";
 
 import {
@@ -8,6 +7,10 @@ import {
     Row,
     Col,
     Table,
+    DropdownItem,
+    DropdownMenu,
+    DropdownToggle,
+    Dropdown,
 } from "reactstrap";
 import { actions as devicesActions } from "./redux/devices-actions";
 import { actions as systemActions } from "../redux/system-actions";
@@ -39,6 +42,10 @@ function Devices({
     notify,
 }: Props) {
 
+    const [dropdownOpen, setDropdownOpen] = useState(false);
+
+    const toggle = () => { setDropdownOpen(!dropdownOpen) }
+
     let [myDevices, setMyDevices] = useState([]);
 
     useEffect(() => {
@@ -57,12 +64,22 @@ function Devices({
                     <Row className="mt-5 justify-content-md-center">
                         <DevicesTable devices={devices} />
                     </Row>
-                </Col>
 
+                    <Row>
+                        <Dropdown isOpen={dropdownOpen} toggle={toggle}>
+                            <DropdownToggle caret>
+                                Our devices
+                            </DropdownToggle>
+                            <DropdownMenu>
+                                {devices?.map(device=> {
+                                    return <DropdownItem> {device.name} </DropdownItem>
+                                })}
+                            </DropdownMenu>
+                        </Dropdown>
+                    </Row>
+                </Col>
             </Container>
         </>
     );
 }
-
-
 export default connector(Devices);
