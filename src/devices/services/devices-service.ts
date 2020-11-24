@@ -30,6 +30,10 @@ class DevicesService {
         return id;
     }
 
+    editLink(id: any){
+        window.location.replace("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+    }
+
     async devices(): Promise<Device[]> {
         const result = await this.http.get(
             "/getDevices",

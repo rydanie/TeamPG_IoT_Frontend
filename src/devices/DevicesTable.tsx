@@ -50,8 +50,8 @@ export function DevicesTable({ devices }: DevicesTableProps): JSX.Element {
                       </th>
                        <th scope="row">
                        <Button outline color="danger" onClick={ (e) =>
-                          console.log(devicesService.edit(device.id),
-                          window.location.reload()
+                          console.log(devicesService.editLink(device.id)
+
                           ) }>Edit Device</Button>
                       </th>
                     </tr>

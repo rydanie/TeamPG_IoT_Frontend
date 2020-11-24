@@ -19,14 +19,10 @@ import { Device } from "../devices/redux/devices-state";
         conName: string;
     }
 
-    interface DevicesTableProps {
-        devices?: Device[];
-    }
-
     //this is where the onCreateDevice is created and varaibles should be added here
     interface DevicesFormProps {
         loading: boolean;
-        onCreateDevice: (name: string, macAdd: string, conName: string) => void;
+        onInfoEntered: (name: string, macAdd: string, conName: string) => void;
     }
 
     //this is where onSubmit is created and gets the data
@@ -40,7 +36,7 @@ import { Device } from "../devices/redux/devices-state";
     before it lets you move on, the handleSubmit forces all buttons to be submit buttons*/
     return <Card className="col-lg-6">
         <CardHeader>
-            <h3 className="mb-0">DEVICE ENROLLEMENT</h3>
+            <h3 className="mb-0">EDIT DEVICE INFO</h3>
         </CardHeader>
         <CardBody>
             <Form onSubmit={handleSubmit(onSubmit)}>
