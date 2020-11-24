@@ -3,10 +3,15 @@ import React, { ChangeEvent, useState, useEffect, dropDownOpen } from "react";
 import "../App.css";
 
 import {gWays} from "../Gateway/GatewaysForm";
-
+import devicesService from "LocalView/services/devices-service";
 
 
 export default function LocalView(){
+
+        useEffect(() => {
+        devicesService.devices().then(devices => {console.log(devices)});
+        //loadDevices();
+        }, []);
 
     const [dropdownOpen, setDropdownOpen] = useState(false);
 
