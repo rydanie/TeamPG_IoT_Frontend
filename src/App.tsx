@@ -9,10 +9,12 @@ import {
 } from "react-router-dom";
 import Devices from "devices/Devices";
 import Gateways from "Gateway/Gateways";
-import GlobalView from "GlobalView/GlobalView"
-import LocalView from "LocalView/LocalView"
+import GlobalView from "GlobalView/GlobalView";
+import LocalView from "LocalView/LocalView";
 import Help from "help/Help";
-import EditDevice from "EditDevice/EditDevicesForm"
+import EditDevicesForm from "EditDevice/EditDevicesForm";
+import EditDevices from "devices/EditDevices";
+
  
 function App() {
   return (
@@ -21,6 +23,9 @@ function App() {
         <div>
           <NavigationBar />
           <Switch>
+          <Route path="/devices/EditDevices"><br></br>
+            <EditDevices />
+          </Route>
             <Route path="/devices"><br></br>
               <Devices />
             </Route>
@@ -37,7 +42,7 @@ function App() {
               <Help />
             </Route>
             <Route path="/EditDevice"><br></br>
-              <EditDevice />
+              <EditDevicesForm />
             </Route>
           </Switch>
         </div>

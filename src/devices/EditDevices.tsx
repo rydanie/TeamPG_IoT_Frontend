@@ -1,6 +1,4 @@
-import React, { useEffect, useState, ChangeEvent, dropDOwnOpen } from "react";
-import { connect, ConnectedProps } from "react-redux";
-import { RootState } from "redux/root-reducer";
+import React from "react";
 import {
     Card,
     CardHeader,
@@ -12,46 +10,7 @@ import {
     Button,
 } from "reactstrap";
 import { useForm, Controller } from "react-hook-form";
-import { Device } from "../devices/redux/devices-state";
-import { actions as devicesActions } from "./redux/devices-actions";
-import { actions as systemActions } from "../redux/system-actions";
-import devicesService from "devices/services/devices-service";
-
-const mapState = (state: RootState) => ({
-    loading: state.devices.loading,
-    devices: state.devices.devices,
-});
-
-const mapDispatch = {
-    loadDevices: devicesActions.loadDevices,
-    createDevice: devicesActions.createDevice,
-    notify: systemActions.notify
-};
-
-const connector = connect(mapState, mapDispatch);
-type PropsFromRedux = ConnectedProps<typeof connector>;
-
-type Props = PropsFromRedux;
-
-function Devices({
-    loading,
-    devices,
-    createDevice,
-    loadDevices,
-    notify,
-}: Props) {
-
-const [dropdownOpen, setDropdownOpen] = useState(false);
-
-    const toggle = () => { setDropdownOpen(!dropdownOpen) }
-
-    let [myDevices, setMyDevices] = useState([]);
-
-    useEffect(() => {
-        devicesService.devices().then(devices => {console.log(devices)});
-        loadDevices();
-    }, []);
-}
+import { Device } from "./redux/devices-state";
 
     //this is the class for what data is using to store name
     interface FormInput {
@@ -63,7 +22,7 @@ const [dropdownOpen, setDropdownOpen] = useState(false);
     //this is where the onCreateDevice is created and varaibles should be added here
     interface DevicesFormProps {
         loading: boolean;
-        onInfoEntered: (name: string, macAdd: string, conName: string) => void;
+        onCreateDevice: (name: string, macAdd: string, conName: string) => void;
     }
 
     //this is where onSubmit is created and gets the data
@@ -77,7 +36,7 @@ const [dropdownOpen, setDropdownOpen] = useState(false);
     before it lets you move on, the handleSubmit forces all buttons to be submit buttons*/
     return <Card className="col-lg-6">
         <CardHeader>
-            <h3 className="mb-0">EDIT DEVICE INFO</h3>
+            <h3 className="mb-0">EDIT DEVICE</h3>
         </CardHeader>
         <CardBody>
             <Form onSubmit={handleSubmit(onSubmit)}>
@@ -95,7 +54,41 @@ const [dropdownOpen, setDropdownOpen] = useState(false);
                         <div className="alert alert-danger" role="alert">
                             <strong>Device Name Required</strong> is required
                                 </div>}
+                    <Label for="device-macAdd">Mac Address:</Label>
+                    <Controller
+                        as={Input}
+                        name="macAdd"
+                        control={control}
+                        defaultValue=""
+                        placeholder="Mac Address"
+                        rules={{ required: true }}
+                    />
+                    {errors.name &&
+                        <div className="alert alert-danger" role="alert">
+                            <strong>Mac Address</strong> is required
+                                </div>}
+                    <Label for="device-conName">Gateway Connected to:</Label>
+                    <Controller
+                        as={Input}
+                        name="conName"
+                        control={control}
+                        defaultValue=""
+                        placeholder="Gateway Name"
+                        id="device-name"
+                        rules={{ required: true }}
+                    />
+                    {errors.name &&
+                        <div className="alert alert-danger" role="alert">
+                            <strong>Gateway Name</strong> is required
+                                </div>}
                 </FormGroup>
+                <Button
+                    type="submit"
+                    color="success"
+                    disabled={loading}
+                >
+                    Submit
+                </Button>
             </Form>
         </CardBody>
     </Card>;
