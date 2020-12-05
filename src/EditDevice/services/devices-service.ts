@@ -30,25 +30,9 @@ class DevicesService {
         return id;
     }
 
-        async edit(id: any, name: string, macAdd: string, conName: string): Promise<Device[]> {
-
-                await this.http.post(
-                    "/editDevice",
-                    { id, name, macAdd, conName},
-                    {
-                        headers: {
-                            "Content-Type": "application/json",
-                            Accept: "application/json",
-                        },
-                    }
-                );
-
-                return await this.devices();
-            }
-
     editLink(id: any){
-        window.location.replace("http://localhost:3000/devices/EditDevices/");
-        //window.location.replace("http://localhost:3000/EditDevice/"+id);
+        //window.location.replace("http://localhost:3000/devices/EditDevice");
+        window.location.replace("http://localhost:3000/EditDevice/"+id);
     }
 
     async devices(): Promise<Device[]> {
