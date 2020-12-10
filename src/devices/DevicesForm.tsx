@@ -34,7 +34,7 @@ interface DevicesFormProps {
 export default function DevicesForm({ loading, onCreateDevice }: DevicesFormProps): JSX.Element {
     const { register, errors, control, handleSubmit } = useForm<FormInput>();
     const onSubmit = (data: FormInput) => {
-        onCreateDevice(data.name, data.macAdd, data.conName);
+        onCreateDevice(data.name, data.macAdd, selectedGateway);
 };
 
  const [dropdownOpen, setDropdownOpen] = useState(false);

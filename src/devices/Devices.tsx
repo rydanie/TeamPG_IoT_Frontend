@@ -42,14 +42,12 @@ function Devices({
     notify,
 }: Props) {
 
+let [myDevices, setMyDevices] = useState([]);
 
-
-    let [myDevices, setMyDevices] = useState([]);
-
-    useEffect(() => {
-        devicesService.devices().then(devices => {console.log(devices)});
-        loadDevices();
-    }, []);
+useEffect(() => {
+    devicesService.devices().then(devices => {console.log(devices)});
+    loadDevices();
+}, []);
 
     return (
         <>

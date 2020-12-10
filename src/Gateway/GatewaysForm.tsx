@@ -17,28 +17,6 @@ interface FormInput {
     macAdd: string;
     ipAdd: string;
 }
-
-
-export let gWays = new Array();
-
-var gWay = {macAdd:"", nameOf:"", ipAdd:""};
-var gWay2 = {macAdd:"", nameOf:"", ipAdd:""};
-
-gWay.macAdd = "32:23:54:72:34";
-gWay.nameOf = "Kevin's Van";
-gWay.ipAdd = "123.45.322";
-
-gWay2.macAdd = "32:23:54:72:34";
-gWay2.nameOf = "Not Kevin's Van";
-gWay2.ipAdd = "123.45.322";
-
-gWays.push(gWay);
-gWays.push(gWay2);
-
-
-
-//export gWays;
-
 interface GatewaysFormProps {
     loading: boolean;
     onCreateGateway: (name: string, macAdd: string, ipAdd: string) => void;
@@ -50,17 +28,6 @@ export default function GatewaysForm({ loading, onCreateGateway }: GatewaysFormP
         onCreateGateway(data.name, data.macAdd, data.ipAdd);
 
     };
-
-    const onGwaySubmit = (data: FormInput) => {
-       var gWay = {macAdd:"", nameOf:"", ipAdd:""};
-       gWay.macAdd = data.macAdd;
-       gWay.nameOf = data.name;
-       gWay.ipAdd = data.ipAdd;
-       gWays.push(gWay);
-       console.log("Handled Gateway")
-       console.log(gWays)
-   };
-
 
     /*name is the devices name, id is mac address, required means it must be entered
     before it lets you move on*/
