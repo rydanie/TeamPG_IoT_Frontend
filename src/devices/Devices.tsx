@@ -42,9 +42,7 @@ function Devices({
     notify,
 }: Props) {
 
-    const [dropdownOpen, setDropdownOpen] = useState(false);
 
-    const toggle = () => { setDropdownOpen(!dropdownOpen) }
 
     let [myDevices, setMyDevices] = useState([]);
 
@@ -63,19 +61,6 @@ function Devices({
 
                     <Row className="mt-5 justify-content-md-center">
                         <DevicesTable devices={devices} />
-                    </Row>
-
-                    <Row>
-                        <Dropdown isOpen={dropdownOpen} toggle={toggle}>
-                            <DropdownToggle caret>
-                                Our devices
-                            </DropdownToggle>
-                            <DropdownMenu>
-                                {devices?.map(device=> {
-                                    return <DropdownItem> {device.name} </DropdownItem>
-                                })}
-                            </DropdownMenu>
-                        </Dropdown>
                     </Row>
                 </Col>
             </Container>
