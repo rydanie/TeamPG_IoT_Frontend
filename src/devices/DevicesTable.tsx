@@ -13,12 +13,6 @@ interface DevicesTableProps {
 
 export let devicesArray = new Array();
 
-       var gWay = {id: "", macAdd:"", nameOf:"", conName:""};
-       //gWay.macAdd = data.macAdd;
-       //gWay.nameOf = data.name;
-       //gWay.ipAdd = data.ipAdd;
-       //devicesArray.push(gWay);
-
 export function DevicesTable({ devices }: DevicesTableProps): JSX.Element {
     /*to get a new coloumn put it in between tr and it needs a .map */
     return <Table className="align-items-center" responsive hover striped>
