@@ -10,7 +10,7 @@ class GatewaysService {
     }
 
     async create(name: string, macAdd: string, ipAdd: string): Promise<Gateways[]> {
-        console.log(name+ " "+ macAdd+ " "+ipAdd);
+        //console.log(name+ " "+ macAdd+ " "+ipAdd);
         await this.http.post(
             "/",
             { name, macAdd, ipAdd},
@@ -48,8 +48,8 @@ class GatewaysService {
         }
 
         return data.map((Gateways: any) => {
-           console.log(Gateways.ipaddress);
-           console.log(Gateways.name);
+           //console.log(Gateways.ipaddress);
+           //console.log(Gateways.name);
             return {
                 id: Gateways.id,
                 name: Gateways.name,
