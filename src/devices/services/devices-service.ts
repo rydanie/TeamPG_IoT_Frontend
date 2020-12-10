@@ -48,7 +48,6 @@ class DevicesService {
 
     editLink(id: any){
         window.location.replace("http://localhost:3000/devices/EditDevices/");
-        //window.location.replace("http://localhost:3000/EditDevice/"+id);
     }
 
     async devices(): Promise<Device[]> {

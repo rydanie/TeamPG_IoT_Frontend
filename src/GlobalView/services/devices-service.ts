@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from "axios";
-import { Device } from "devices/redux/devices-state";
+import { Device } from "LocalView/redux/devices-state";
 
 class DevicesService {
     private http: AxiosInstance;
@@ -31,8 +31,7 @@ class DevicesService {
     }
 
     editLink(id: any){
-        //window.location.replace("http://localhost:3000/devices/EditDevice");
-        window.location.replace("http://localhost:3000/EditDevice/"+id);
+        window.location.replace("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
     }
 
     async devices(): Promise<Device[]> {
