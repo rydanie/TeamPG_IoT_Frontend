@@ -12,7 +12,6 @@ import Gateways from "Gateway/Gateways";
 import GlobalView from "GlobalView/GlobalView";
 import LocalView from "LocalView/LocalView";
 import Help from "help/Help";
-import EditDevicesForm from "EditDevice/EditDevicesForm";
 import EditDevices from "devices/EditDevices";
 
  
@@ -40,9 +39,6 @@ function App() {
             </Route>
             <Route path="/help"><br></br>
               <Help />
-            </Route>
-            <Route path="/EditDevice"><br></br>
-              <EditDevicesForm />
             </Route>
           </Switch>
         </div>
