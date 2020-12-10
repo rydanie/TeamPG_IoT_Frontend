@@ -32,24 +32,27 @@ return <div>
             <tr>
                 <th scope="col">Gateway</th>
                 <th scope="col">Mac Address</th>
+                <th scope="col">Ip Address</th>
+                <th scope="col">Devices Connected</th>
             </tr>
         </thead>
     <tbody>
         {gateways?.map((gateways) => {
             return (
                 <tr key={gateways.id} >
-
-                    <th scope="row" onRender={()=>handleGateway(gateways.name)}>
+                    <th scope="row">
                         {gateways.name}
-                        {()=>handleGateway(gateways.name)}
-                        {console.log(gateways.name)}
                     </th>
                     <th scope="row">
                         {gateways.macAdd}
                     </th>
-                    {devices?.filter(device=>device.conName===selectedGateway).map((device) => {
+                    <th scope="row">
+                        {gateways.ipAdd}
+                    </th>
+                    {devices?.filter(device=>device.conName===gateways.name).map((device) => {
                     return (
                         <tr key={device.id}>
+
                             <th scope="row">
                                 {device.name}
                             </th>
