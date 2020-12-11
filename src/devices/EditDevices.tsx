@@ -15,7 +15,7 @@ import {
 } from "reactstrap";
 import { useForm, Controller } from "react-hook-form";
 import { Device } from "./redux/devices-state";
-import devicesService from "LocalView/services/devices-service";
+import devicesService from "devices/services/devices-service";
 import gatewaysService from "devices/services/Gateways-service";
 
 //this is the class for what data is using to store name
@@ -28,14 +28,15 @@ interface FormInput {
 //this is where the onCreateDevice is created and varaibles should be added here
 interface DevicesFormProps {
     loading: boolean;
-    onCreateDevice: (name: string, macAdd: string, conName: string) => void;
+    //editDevice: (id: number, name: string, macAdd: string, conName: string) => void;
 }
 
 //this is where onSubmit is created and gets the data
-export default function DevicesForm({ loading, onCreateDevice }: DevicesFormProps): JSX.Element {
+export default function DevicesForm({ loading,  }: DevicesFormProps): JSX.Element {
     const { register, errors, control, handleSubmit } = useForm<FormInput>();
     const onSubmit = (data: FormInput) => {
-        onCreateDevice(data.name, data.macAdd, selectedGateway);
+        devicesService.edit(passedID, data.name, data.macAdd, selectedGateway);
+        window.location.replace("http://localhost:3000/devices");
 };
 
 var url = window.location.pathname;
@@ -59,12 +60,6 @@ const handleGateway = (name) => {
     setSelectedGateway(name);
     setDropdownOpen(false);
 }
-
-//this should search for the right device
-/*function findDevice(){
-    console.log("It ran");
-    devices?.filter(device=>device.id===passedID).map((device));
-}*/
 
 /*name is the devices name, id is mac address, required means it must be entered
 before it lets you move on, the handleSubmit forces all buttons to be submit buttons*/
