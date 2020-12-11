@@ -13,7 +13,7 @@ import GlobalView from "GlobalView/GlobalView";
 import LocalView from "LocalView/LocalView";
 import Help from "help/Help";
 import EditDevices from "devices/EditDevices";
-
+import EditGateways from "Gateway/EditGateways";
  
 function App() {
   return (
@@ -27,6 +27,9 @@ function App() {
           </Route>
             <Route path="/devices"><br></br>
               <Devices />
+            </Route>
+            <Route path="/gateways/EditGateways"><br></br>
+                <EditGateways />
             </Route>
             <Route path="/Gateways"><br></br>
               <Gateways />

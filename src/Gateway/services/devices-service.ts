@@ -1,7 +1,7 @@
 import axios, { AxiosInstance } from "axios";
-import { Gateways } from "Gateway/redux/Gateways-state";
+import { Device } from "devices/redux/devices-state";
 
-class GatewaysService {
+class DevicesService {
     private http: AxiosInstance;
     constructor(baseUrl: string) {
         this.http = axios.create({
@@ -9,11 +9,11 @@ class GatewaysService {
         });
     }
 
-    async create(name: string, macAdd: string, ipAdd: string): Promise<Gateways[]> {
-        console.log(name+ " "+ macAdd+ " "+ipAdd);
+    async create(name: string, macAdd: string, conName: string): Promise<Device[]> {
+
         await this.http.post(
             "/",
-            { name, macAdd, ipAdd},
+            { name, macAdd, conName},
             {
                 headers: {
                     "Content-Type": "application/json",
@@ -22,19 +22,19 @@ class GatewaysService {
             }
         );
 
-        return await this.Gateways();
+        return await this.devices();
     }
 
     delete(id: any) {
-        axios.delete("http://localhost:3000/gateways/deleteGateways/"+id);
+        axios.delete("http://localhost:3000/devices/deleteDevices/"+id);
         return id;
     }
 
-    async edit(id: any, name: string, macAdd: string, ipAdd: string): Promise<Device[]> {
+    async edit(id: any, name: string, macAdd: string, conName: string): Promise<Device[]> {
 
         await this.http.put(
-            "/editGateway",
-            { id, name, macAdd, ipAdd},
+            "/editDevice",
+            { id, name, macAdd, conName},
             {
                 headers: {
                     "Content-Type": "application/json",
@@ -43,16 +43,16 @@ class GatewaysService {
             }
         );
 
-        return await this.Gateways();
+        return await this.devices();
     }
 
     editLink(id: any){
-        window.location.replace("http://localhost:3000/gateways/EditGateways/"+id);
+        window.location.replace("http://localhost:3000/devices/EditDevices/"+id);
     }
 
-    async Gateways(): Promise<Gateways[]> {
+    async devices(): Promise<Device[]> {
         const result = await this.http.get(
-            "/getgateways",
+            "/getDevices",
             {
                 headers: {
                     "Content-Type": "application/json",
@@ -67,19 +67,20 @@ class GatewaysService {
             return Promise.resolve([]);
         }
 
-        return data.map((Gateways: any) => {
+        /*this is where it gets all of the info for device*/
+        return data.map((device: any) => {
             return {
-                id: Gateways.id,
-                name: Gateways.name,
-                macAdd: Gateways.macAdd,
-                ipAdd: Gateways.ipaddress
+                id: device.id,
+                name: device.name,
+                macAdd: device.macAdd,
+                conName: device.conName,
             };
         });
     }
 
 }
 
-const gatewaysService = new GatewaysService(
-    "http://localhost:3000/gateways",
+const devicesService = new DevicesService(
+    "http://localhost:3000/devices"
 );
-export default gatewaysService;
+export default devicesService;
