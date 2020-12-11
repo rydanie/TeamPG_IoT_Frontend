@@ -80,7 +80,6 @@ const createDevice = (
   }
 };
 
-
 export const actions = {
   loadDevices,
   createDevice,

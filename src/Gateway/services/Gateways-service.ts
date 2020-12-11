@@ -30,6 +30,26 @@ class GatewaysService {
         return id;
     }
 
+    async edit(id: any, name: string, macAdd: string, ipAdd: string): Promise<Device[]> {
+
+        await this.http.put(
+            "/editGateway",
+            { id, name, macAdd, ipAdd},
+            {
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                },
+            }
+        );
+
+        return await this.Gateways();
+    }
+
+    editLink(id: any){
+        window.location.replace("http://localhost:3000/gateways/EditGateways/"+id);
+    }
+
     async Gateways(): Promise<Gateways[]> {
         const result = await this.http.get(
             "/getgateways",
@@ -48,8 +68,6 @@ class GatewaysService {
         }
 
         return data.map((Gateways: any) => {
-           console.log(Gateways.ipaddress);
-           console.log(Gateways.name);
             return {
                 id: Gateways.id,
                 name: Gateways.name,

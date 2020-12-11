@@ -44,8 +44,9 @@ export function GatewaysTable({ Gateways }: GatewaysTableProps): JSX.Element {
                         ) }>Delete Gateway</Button>
                       </th>
                        <th scope="row">
-                         <Button
-
+                         <Button outline color="danger" onClick={ (e) =>
+                            console.log(GatewaysService.editLink(Gateways.id)
+                         )}
                            >Edit Gateway</Button>
                         </th>
                     </tr>
