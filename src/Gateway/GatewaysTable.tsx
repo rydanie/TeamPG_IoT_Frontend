@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ChangeEvent, useState, useEffect } from "react";
 
 import {
     Table,
@@ -6,6 +6,7 @@ import {
 } from "reactstrap";
 import { Gateways } from "./redux/Gateways-state";
 import GatewaysService from "Gateway/services/Gateways-service";
+import devicesService from "Gateway/services/devices-service";
 
 //import{gWays} from "./GatewaysForm"
 
@@ -13,7 +14,16 @@ interface GatewaysTableProps {
     Gateways?: Gateways[];
 }
 
+
+
 export function GatewaysTable({ Gateways }: GatewaysTableProps): JSX.Element {
+
+    const [devices, setDevices] = useState([]);
+
+    useEffect(() => {
+        devicesService.devices().then(devices => {setDevices(devices)});
+    }, []);
+
     /*to get a new coloumn put it in between tr and it needs a .map */
     return <Table className="align-items-center" responsive hover striped>
         <thead className="thead-light">

@@ -56,9 +56,7 @@ return <div>
                             <th scope="row">
                                 {device.name}
                             </th>
-                            <th scope="row">
-                                {device.macAdd}
-                            </th>
+
                         </tr>
                         );
                     })}
