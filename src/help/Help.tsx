@@ -1,5 +1,5 @@
 import React from "react";
-import { Table } from "reactstrap";
+import { Table, Button } from "reactstrap";
 import Dropdown from "../bootstrap/js/bootstrap.js"
 
 import "../App.css";
@@ -36,5 +36,9 @@ export default function Help(){
                  </tr>
              </tbody>
          </Table>
+         <Button outline color="success" onClick={ (e) =>
+         window.location.replace("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
+
+          }>Click here to contact us</Button>
     </div>
 }
