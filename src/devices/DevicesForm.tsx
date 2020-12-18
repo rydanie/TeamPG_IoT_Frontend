@@ -33,7 +33,19 @@ interface DevicesFormProps {
 //this is where onSubmit is created and gets the data
 export default function DevicesForm({ loading, onCreateDevice }: DevicesFormProps): JSX.Element {
     const { register, errors, control, handleSubmit } = useForm<FormInput>();
+
+    const [error, setError] = useState<String | null>(null);
+
     const onSubmit = (data: FormInput) => {
+
+        let regEx = new RegExp("^([0-9A-F]{2}[:-]){5}([0-9A-F]{2})$");
+        let valid = regEx.test(data.macAdd);
+        if(!valid){
+            setError("Error at Mac Address (example: 00:10:5A:44:12:B5)");
+        }
+        else{
+            setError(null);
+        }
         onCreateDevice(data.name, data.macAdd, selectedGateway);
 };
 
@@ -60,6 +72,9 @@ return <Card className="col-lg-6">
         <h3 className="mb-0">DEVICE ENROLLEMENT</h3>
     </CardHeader>
     <CardBody>
+        {error && <div style={{color:"red"}}>
+            {error}
+            </div>}
         <Form onSubmit={handleSubmit(onSubmit)}>
             <FormGroup>
                 <Label for="device-name">Device Name:</Label>
@@ -90,7 +105,7 @@ return <Card className="col-lg-6">
                             </div>}
                 <Label for="device-conName">Gateway Connected to:</Label>
                 <Dropdown isOpen={dropdownOpen} toggle={toggle}>
-                <DropdownToggle caret>
+                <DropdownToggle>
                     {selectedGateway?selectedGateway:"Selected Gateway"}
                 </DropdownToggle>
                     <DropdownMenu>
