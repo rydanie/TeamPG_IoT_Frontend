@@ -82,13 +82,13 @@ export default function GatewaysForm({ loading, onCreateGateway }: GatewaysFormP
                         <div className="alert alert-danger" role="alert">
                             <strong>Gateway Name Required</strong> is required
                                 </div>}
-                    <Label for="Gateway-macAdd">Gateway Mac Address:</Label>
+                    <Label for="Gateway-macAdd">Gateway Mac Address (Example: 00:10:5A:44:12:B5):</Label>
                      <Controller
                         as={Input}
                         name="macAdd"
                         control={control}
                         defaultValue=""
-                        placeholder="Gateway Mac Address"
+                        placeholder="Example: 00:10:5A:44:12:B5"
                         id="Gateway-macAdd"
                         rules={{ required: true }}
                     />
@@ -96,13 +96,13 @@ export default function GatewaysForm({ loading, onCreateGateway }: GatewaysFormP
                         <div className="alert alert-danger" role="alert">
                             <strong>Gateway Mac Address Required</strong> is required
                                 </div>}
-                    <Label for="Gateway-ipAdd">Gateway IP Address:</Label>
+                    <Label for="Gateway-ipAdd">Gateway IP Address (Example: 172.16.0.9):</Label>
                     <Controller
                        as={Input}
                        name="ipAdd"
                        control={control}
                        defaultValue=""
-                       placeholder="Gateway IP Address"
+                       placeholder="Example: 172.16.0.9"
                        id="Gateway-ipAdd"
                        rules={{ required: true }}
                     />

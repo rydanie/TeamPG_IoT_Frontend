@@ -92,13 +92,13 @@ return <Card className="col-lg-6">
                     <div className="alert alert-danger" role="alert">
                         <strong>Device Name Required</strong> is required
                             </div>}
-                <Label for="device-macAdd">Mac Address:</Label>
+                <Label for="device-macAdd">Mac Address (Example: 00:10:5A:44:12:B5):</Label>
                 <Controller
                     as={Input}
                     name="macAdd"
                     control={control}
                     defaultValue=""
-                    placeholder="Mac Address"
+                    placeholder="Example: 00:10:5A:44:12:B5"
                     rules={{ required: true }}
                 />
                 {errors.name &&
