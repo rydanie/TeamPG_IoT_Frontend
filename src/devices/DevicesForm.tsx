@@ -46,7 +46,9 @@ export default function DevicesForm({ loading, onCreateDevice }: DevicesFormProp
         else{
             setError(null);
         }
-        onCreateDevice(data.name, data.macAdd, selectedGateway);
+        if(valid){
+            onCreateDevice(data.name, data.macAdd, selectedGateway);
+        }
 };
 
  const [dropdownOpen, setDropdownOpen] = useState(false);
