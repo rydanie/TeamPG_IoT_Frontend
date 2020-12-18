@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
     Card,
     CardHeader,
@@ -24,9 +24,33 @@ interface GatewaysFormProps {
 
 export default function GatewaysForm({ loading, onCreateGateway }: GatewaysFormProps): JSX.Element {
     const { register, errors, control, handleSubmit } = useForm<FormInput>();
-    const onSubmit = (data: FormInput) => {
-        onCreateGateway(data.name, data.macAdd, data.ipAdd);
 
+    const [error, setError] = useState<String | null>(null);
+
+    const [error2, setError2] = useState<String | null>(null);
+
+    const onSubmit = (data: FormInput) => {
+
+        let regEx = new RegExp("^([0-9A-F]{2}[:-]){5}([0-9A-F]{2})$");
+        let valid = regEx.test(data.macAdd);
+        if(!valid){
+            setError("Error at Mac Address (example: 00:10:5A:44:12:B5)");
+        }
+        else{
+            setError(null);
+        }
+
+        let regEx2 = new RegExp("^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$");
+        let valid2 = regEx2.test(data.ipAdd);
+        if(!valid2){
+            setError2("Error at IP Address (example: 172.16.0.9)");
+        }
+        else{
+            setError2(null);
+        }
+        if(valid && valid2){
+            onCreateGateway(data.name, data.macAdd, data.ipAdd);
+        }
     };
 
     /*name is the devices name, id is mac address, required means it must be entered
@@ -36,6 +60,12 @@ export default function GatewaysForm({ loading, onCreateGateway }: GatewaysFormP
             <h3 className="mb-0">GATEWAY ENROLLEMENT</h3>
         </CardHeader>
         <CardBody>
+            {error && <div style={{color:"red"}}>
+                {error}
+                </div>}
+            {error2 && <div style={{color:"red"}}>
+                {error2}
+                </div>}
             <Form onSubmit={handleSubmit(onSubmit)}>
                 <FormGroup>
                     <Label for="Gateway-name">Gateway Name:</Label>
